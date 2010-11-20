@@ -2,3 +2,7 @@ log/*.log
 tmp/**/*
 db/*.sqlite3
 
+*.swo
+*.swp
+.p.*
+

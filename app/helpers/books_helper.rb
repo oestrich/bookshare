@@ -1,6 +1,5 @@
 module BooksHelper
 end
-#!/usr/bin/env ruby
 
 # loosely based on http://snipplr.com/view/13299/convert-upc-to-isbn/
 # returns ISBN-10
