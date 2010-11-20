@@ -1,5 +1,9 @@
 Bookshare::Application.routes.draw do
+  devise_for :users
+
   resources :books
+
+  root :to => "books#index"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

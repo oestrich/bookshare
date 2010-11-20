@@ -27,3 +27,191 @@ Migrating to CreateBooks (20101120015803)
  WHERE type = 'table' AND NOT name = 'sqlite_sequence'
 [0m
   [1m[35mSQL (0.0ms)[0m  PRAGMA index_list("books")
+
+
+Started GET "/books" for 127.0.0.1 at Fri Nov 19 21:04:26 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.8ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Rendered books/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 121ms (Views: 14.8ms | ActiveRecord: 0.8ms)
+  [1m[36mSQL (0.8ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+Migrating to CreateBooks (20101120015803)
+Migrating to DeviseCreateUsers (20101120021721)
+  [1m[35mSQL (14.5ms)[0m  select sqlite_version(*)
+  [1m[36mSQL (1.0ms)[0m  [1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "email" varchar(255) DEFAULT '' NOT NULL, "encrypted_password" varchar(128) DEFAULT '' NOT NULL, "password_salt" varchar(255) DEFAULT '' NOT NULL, "reset_password_token" varchar(255), "remember_token" varchar(255), "remember_created_at" datetime, "sign_in_count" integer DEFAULT 0, "current_sign_in_at" datetime, "last_sign_in_at" datetime, "current_sign_in_ip" varchar(255), "last_sign_in_ip" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.9ms)[0m  [1mCREATE UNIQUE INDEX "index_users_on_email" ON "users" ("email")[0m
+  [1m[35mSQL (0.2ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_info('index_users_on_email')[0m
+  [1m[35mSQL (0.3ms)[0m  CREATE UNIQUE INDEX "index_users_on_reset_password_token" ON "users" ("reset_password_token")
+  [1m[36mSQL (0.3ms)[0m  [1mINSERT INTO "schema_migrations" ("version") VALUES ('20101120021721')[0m
+  [1m[35mSQL (0.4ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.3ms)[0m  [1mSELECT "schema_migrations"."version" FROM "schema_migrations"[0m
+  [1m[35mSQL (0.3ms)[0m   SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+  [1m[36mSQL (0.1ms)[0m  [1mPRAGMA index_list("books")[0m
+  [1m[35mSQL (0.3ms)[0m  PRAGMA index_list("users")
+  [1m[36mSQL (0.2ms)[0m  [1mPRAGMA index_info('index_users_on_reset_password_token')[0m
+  [1m[35mSQL (0.1ms)[0m  PRAGMA index_info('index_users_on_email')
+
+
+Started GET "/Users" for 127.0.0.1 at Fri Nov 19 21:18:02 -0500 2010
+
+ActionController::RoutingError (No route matches "/Users"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/Users/signup" for 127.0.0.1 at Fri Nov 19 21:18:15 -0500 2010
+
+ActionController::RoutingError (No route matches "/Users/signup"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/Users/sign_up" for 127.0.0.1 at Fri Nov 19 21:18:18 -0500 2010
+
+ActionController::RoutingError (No route matches "/Users/sign_up"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.5ms)
+
+
+Started GET "/users/signup" for 127.0.0.1 at Fri Nov 19 21:19:06 -0500 2010
+
+ActionController::RoutingError (No route matches "/users/signup"):
+  
+
+Rendered /var/lib/gems/1.8/gems/actionpack-3.0.3/lib/action_dispatch/middleware/templates/rescues/routing_error.erb within rescues/layout (1.6ms)
+
+
+Started GET "/users/sign_up" for 127.0.0.1 at Fri Nov 19 21:19:11 -0500 2010
+  Processing by Devise::RegistrationsController#new as HTML
+Rendered /var/lib/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (3.3ms)
+Rendered /var/lib/gems/1.8/gems/devise-1.1.3/app/views/devise/registrations/new.html.erb within layouts/application (33.4ms)
+Completed 200 OK in 62ms (Views: 45.2ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users" for 127.0.0.1 at Fri Nov 19 21:19:26 -0500 2010
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"QFaFjaRERZA1+6XlK9oEumd11SiB9mh4Fxc4WJkA+Nw=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"eric@oestrich.org"}}
+  [1m[36mSQL (0.4ms)[0m  [1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [1m[35mUser Load (0.2ms)[0m  SELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('eric@oestrich.org')) LIMIT 1
+Rendered /var/lib/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (2.9ms)
+Rendered /var/lib/gems/1.8/gems/devise-1.1.3/app/views/devise/registrations/new.html.erb within layouts/application (19.9ms)
+Completed 200 OK in 312ms (Views: 31.3ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users" for 127.0.0.1 at Fri Nov 19 21:19:31 -0500 2010
+  Processing by Devise::RegistrationsController#create as HTML
+  Parameters: {"commit"=>"Sign up", "authenticity_token"=>"QFaFjaRERZA1+6XlK9oEumd11SiB9mh4Fxc4WJkA+Nw=", "utf8"=>"✓", "user"=>{"password_confirmation"=>"[FILTERED]", "password"=>"[FILTERED]", "email"=>"eric@oestrich.org"}}
+  [1m[36mUser Load (0.3ms)[0m  [1mSELECT "users"."id" FROM "users" WHERE (LOWER("users"."email") = LOWER('eric@oestrich.org')) LIMIT 1[0m
+  [1m[35mAREL (0.8ms)[0m  INSERT INTO "users" ("email", "reset_password_token", "last_sign_in_at", "current_sign_in_at", "remember_token", "created_at", "current_sign_in_ip", "sign_in_count", "password_salt", "last_sign_in_ip", "updated_at", "remember_created_at", "encrypted_password") VALUES ('eric@oestrich.org', NULL, NULL, NULL, NULL, '2010-11-20 02:19:31.599011', NULL, 0, '$2a$10$ptoQVSUgHFVbUaClYZ/cju', NULL, '2010-11-20 02:19:31.599011', NULL, '$2a$10$ptoQVSUgHFVbUaClYZ/cjut9alLacxD/hontMbJBVuRw77CsqDmz6')
+  [1m[36mAREL (0.4ms)[0m  [1mUPDATE "users" SET "last_sign_in_at" = '2010-11-20 02:19:31.608005', "current_sign_in_at" = '2010-11-20 02:19:31.608005', "current_sign_in_ip" = '127.0.0.1', "sign_in_count" = 1, "last_sign_in_ip" = '127.0.0.1', "updated_at" = '2010-11-20 02:19:31.608790' WHERE ("users"."id" = 1)[0m
+Redirected to http://localhost:3000/
+Completed 302 Found in 249ms
+
+
+Started GET "/users/sign_out" for 127.0.0.1 at Fri Nov 19 21:19:40 -0500 2010
+  Processing by Devise::SessionsController#destroy as HTML
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Redirected to http://localhost:3000/
+Completed 302 Found in 51ms
+
+
+Started GET "/users/sign_in" for 127.0.0.1 at Fri Nov 19 21:19:45 -0500 2010
+  Processing by Devise::SessionsController#new as HTML
+Rendered /var/lib/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (2.9ms)
+Rendered /var/lib/gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (18.2ms)
+Completed 200 OK in 57ms (Views: 29.5ms | ActiveRecord: 0.0ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Fri Nov 19 21:19:48 -0500 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"QFaFjaRERZA1+6XlK9oEumd11SiB9mh4Fxc4WJkA+Nw=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"eri"}}
+Completed   in 14ms
+  Processing by Devise::SessionsController#new as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"QFaFjaRERZA1+6XlK9oEumd11SiB9mh4Fxc4WJkA+Nw=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"eri"}}
+Rendered /var/lib/gems/1.8/gems/devise-1.1.3/app/views/devise/shared/_links.erb (3.4ms)
+Rendered /var/lib/gems/1.8/gems/devise-1.1.3/app/views/devise/sessions/new.html.erb within layouts/application (19.5ms)
+Completed 200 OK in 47ms (Views: 31.2ms | ActiveRecord: 0.5ms)
+
+
+Started POST "/users/sign_in" for 127.0.0.1 at Fri Nov 19 21:19:52 -0500 2010
+  Processing by Devise::SessionsController#create as HTML
+  Parameters: {"commit"=>"Sign in", "authenticity_token"=>"QFaFjaRERZA1+6XlK9oEumd11SiB9mh4Fxc4WJkA+Nw=", "utf8"=>"✓", "user"=>{"remember_me"=>"0", "password"=>"[FILTERED]", "email"=>"eric@oestrich.org"}}
+  [1m[36mUser Load (0.5ms)[0m  [1mSELECT "users".* FROM "users" WHERE ("users"."email" = 'eric@oestrich.org') LIMIT 1[0m
+  [1m[35mAREL (0.4ms)[0m  UPDATE "users" SET "current_sign_in_at" = '2010-11-20 02:19:53.220093', "sign_in_count" = 2, "updated_at" = '2010-11-20 02:19:53.221258' WHERE ("users"."id" = 1)
+Redirected to http://localhost:3000/
+Completed 302 Found in 230ms
+
+
+Started GET "/books" for 127.0.0.1 at Fri Nov 19 21:20:02 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.7ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Rendered books/index.html.erb within layouts/application (5.6ms)
+Completed 200 OK in 25ms (Views: 15.0ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/books/new" for 127.0.0.1 at Fri Nov 19 21:20:06 -0500 2010
+  Processing by BooksController#new as HTML
+Rendered books/_form.html.erb (19.9ms)
+Rendered books/new.html.erb within layouts/application (27.6ms)
+Completed 200 OK in 48ms (Views: 37.6ms | ActiveRecord: 0.0ms)
+
+
+Started GET "/books" for 127.0.0.1 at Fri Nov 19 21:20:10 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.8ms)[0m  SELECT "books".* FROM "books"
+Rendered books/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 26ms (Views: 15.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/books" for 127.0.0.1 at Fri Nov 19 21:20:10 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.8ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Rendered books/index.html.erb within layouts/application (5.5ms)
+Completed 200 OK in 23ms (Views: 14.8ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/books" for 127.0.0.1 at Fri Nov 19 21:20:11 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[35mBook Load (1.0ms)[0m  SELECT "books".* FROM "books"
+Rendered books/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 26ms (Views: 15.9ms | ActiveRecord: 2.5ms)
+
+
+Started GET "/books" for 127.0.0.1 at Fri Nov 19 21:20:11 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.7ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Rendered books/index.html.erb within layouts/application (5.4ms)
+Completed 200 OK in 24ms (Views: 14.9ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/books" for 127.0.0.1 at Fri Nov 19 21:20:12 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.8ms)[0m  SELECT "books".* FROM "books"
+Rendered books/index.html.erb within layouts/application (6.1ms)
+Completed 200 OK in 97ms (Views: 88.0ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Nov 19 21:20:37 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.8ms)[0m  [1mSELECT "books".* FROM "books"[0m
+Rendered books/index.html.erb within layouts/application (5.8ms)
+Completed 200 OK in 26ms (Views: 15.9ms | ActiveRecord: 0.8ms)
