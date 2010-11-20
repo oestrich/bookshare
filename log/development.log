@@ -215,3 +215,19 @@ Started GET "/" for 127.0.0.1 at Fri Nov 19 21:20:37 -0500 2010
   [1m[36mBook Load (0.8ms)[0m  [1mSELECT "books".* FROM "books"[0m
 Rendered books/index.html.erb within layouts/application (5.8ms)
 Completed 200 OK in 26ms (Views: 15.9ms | ActiveRecord: 0.8ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Nov 19 21:24:09 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[35mBook Load (0.7ms)[0m  SELECT "books".* FROM "books"
+Rendered books/index.html.erb within layouts/application (5.3ms)
+Completed 200 OK in 24ms (Views: 14.6ms | ActiveRecord: 0.7ms)
+
+
+Started GET "/" for 127.0.0.1 at Fri Nov 19 21:25:11 -0500 2010
+  Processing by BooksController#index as HTML
+  [1m[36mBook Load (0.7ms)[0m  [1mSELECT "books".* FROM "books"[0m
+  [1m[35mUser Load (0.5ms)[0m  SELECT "users".* FROM "users" WHERE ("users"."id" = 1) LIMIT 1
+Rendered shared/_header.html.erb (37.5ms)
+Rendered books/index.html.erb within layouts/application (45.3ms)
+Completed 200 OK in 65ms (Views: 54.8ms | ActiveRecord: 1.2ms)
