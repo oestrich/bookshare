@@ -3,10 +3,7 @@
 
 <% @books.each do |book| %>
   <div class='book'>
-    <b><%= book.title %></b> <br />
-    Author: <%= book.author %> <br />
-    Location: <%= book.location.name %> <br />
-    Owner: <%= book.user.first_name %> <%= book.user.last_name %> <br />
+    <img src='<%= book.image_url %>' title='<%= book.title %>' alt='<%= book.title %>' /> <br />
     <%= link_to 'Show', book %>
     <%= link_to 'Edit', edit_book_path(book) %>
     <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>

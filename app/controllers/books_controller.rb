@@ -44,11 +44,16 @@ class BooksController < ApplicationController
   def create
     # use the configure method to setup your api credentials
     configure :secret => 'G6aSVuRonDppc5l1U10dRZW360LL+b3khm/9G6q9', :key => '0HFCVPEF9DTHP5DXV482'
+
     
     @book = Book.new(params[:book])
     item = lookup @book.isbn
+    images = lookup(@book.isbn, {:ResponseGroup => "Images"})
 
     @book.title = item.title
+    @book.asin = item.raw.ASIN
+    @book.details_url = item.raw.DetailPageURL
+    @book.image_url = images.raw.ImageSets.ImageSet.MediumImage.URL
 
     if item.raw.ItemAttributes.Author.class == Array
       @book.author = item.raw.ItemAttributes.Author.join ", "
