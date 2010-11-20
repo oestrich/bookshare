@@ -9,6 +9,7 @@
     <th>Location</th>
     <th>Description</th>
     <th>Isbn</th>
+    <th>ASIN</th>
     <th></th>
     <th></th>
     <th></th>
@@ -21,6 +22,7 @@
     <td><%= book.location %></td>
     <td><%= book.description %></td>
     <td><%= book.isbn %></td>
+    <td><%= book.asin %></td>
     <td><%= link_to 'Show', book %></td>
     <td><%= link_to 'Edit', edit_book_path(book) %></td>
     <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
