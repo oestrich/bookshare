@@ -3,10 +3,8 @@
 
 <% @books.each do |book| %>
   <div class='book'>
-    <img src='<%= book.image_url %>' title='<%= book.title %>' alt='<%= book.title %>' /> <br />
-    <%= link_to 'Show', book %>
-    <%= link_to 'Edit', edit_book_path(book) %>
-    <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+    <%= link_to image_tag(book.image_url), book %> <br />
+<!--    <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %> -->
     <br />
   </div>
 <% end %>
