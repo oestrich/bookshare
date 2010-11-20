@@ -48,6 +48,12 @@ class BooksController < ApplicationController
 
     @book.title = item.title
 
+    if item.raw.ItemAttributes.Author.class == Array
+      @book.author = item.raw.ItemAttributes.Author.join ", "
+    else
+      @book.author = item.raw.ItemAttributes.Author
+    end
+
     respond_to do |format|
       if @book.save
         format.html { redirect_to(@book, :notice => 'Book was successfully created.') }

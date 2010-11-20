@@ -1,13 +1,15 @@
-<%= render :partial => "shared/header" %>
 
 <h1>Listing books</h1>
 
 <% @books.each do |book| %>
   <div class='book'>
     <%= book.title %> <br />
+    Author: <%= book.author %> <br />
+    Location: <%= book.location.name %> <br />
     <%= link_to 'Show', book %>
     <%= link_to 'Edit', edit_book_path(book) %>
     <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+    <br />
   </div>
 <% end %>
 
