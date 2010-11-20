@@ -7,13 +7,16 @@
   <%= csrf_meta_tag %>
 </head>
 <body>
-<%= render :partial => "shared/header" %>
+
+    <%= link_to_rpx "Sign in", user_session_url %>
 
 <p class="notice"><%= notice %></p>
 <p class="alert"><%= alert %></p>
 
 
 <%= yield %>
+
+<%= javascript_include_rpx(user_session_url) %>
 
 </body>
 </html>
