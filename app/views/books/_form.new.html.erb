@@ -19,6 +19,11 @@
     <%= f.label :location %><br />
     <%= f.collection_select :location_id, Location.all, :id, :name %>
   </div>
+  <div class="field">
+    <% if user_signed_in? %>
+       <%= f.hidden_field :user_id, :value => current_user.id %>
+    <% end %>
+  </div>
   <div class="actions">
     <%= f.submit %>
   </div>
