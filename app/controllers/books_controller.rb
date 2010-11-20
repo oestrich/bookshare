@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  before_filter :authenticate_user!
+
   # GET /books
   # GET /books.xml
   def index
@@ -40,7 +42,19 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.xml
   def create
+    # use the configure method to setup your api credentials
+    configure :secret => 'G6aSVuRonDppc5l1U10dRZW360LL+b3khm/9G6q9', :key => '0HFCVPEF9DTHP5DXV482'
+    
     @book = Book.new(params[:book])
+    item = lookup @book.isbn
+
+    @book.title = item.title
+
+    if item.raw.ItemAttributes.Author.class == Array
+      @book.author = item.raw.ItemAttributes.Author.join ", "
+    else
+      @book.author = item.raw.ItemAttributes.Author
+    end
 
     respond_to do |format|
       if @book.save

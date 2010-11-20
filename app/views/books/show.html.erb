@@ -6,13 +6,18 @@
 </p>
 
 <p>
+  <b>Author:</b>
+  <%= @book.author %>
+</p>
+
+<p>
   <b>User:</b>
-  <%= @book.user_id %>
+  <%= @book.user.email %>
 </p>
 
 <p>
   <b>Location:</b>
-  <%= @book.location %>
+  <%= @book.location.name %>
 </p>
 
 <p>
@@ -23,6 +28,10 @@
 <p>
   <b>Isbn:</b>
   <%= @book.isbn %>
+</p>
+<p>
+  <b>ASIN:</b>
+  <%= @book.asin %>
 </p>
 
 

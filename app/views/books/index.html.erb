@@ -1,32 +1,18 @@
-<%= render :partial => "shared/header" %>
 
 <h1>Listing books</h1>
 
-<table>
-  <tr>
-    <th>Title</th>
-    <th>User</th>
-    <th>Location</th>
-    <th>Description</th>
-    <th>Isbn</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
-
 <% @books.each do |book| %>
-  <tr>
-    <td><%= book.title %></td>
-    <td><%= book.user_id %></td>
-    <td><%= book.location %></td>
-    <td><%= book.description %></td>
-    <td><%= book.isbn %></td>
-    <td><%= link_to 'Show', book %></td>
-    <td><%= link_to 'Edit', edit_book_path(book) %></td>
-    <td><%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
+  <div class='book'>
+    <b><%= book.title %></b> <br />
+    Author: <%= book.author %> <br />
+    Location: <%= book.location.name %> <br />
+    Owner: <%= book.user.first_name %> <%= book.user.last_name %> <br />
+    <%= link_to 'Show', book %>
+    <%= link_to 'Edit', edit_book_path(book) %>
+    <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %>
+    <br />
+  </div>
 <% end %>
-</table>
 
 <br />
 

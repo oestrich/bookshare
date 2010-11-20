@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20101120021721) do
+ActiveRecord::Schema.define(:version => 20101120204757) do
 
   create_table "books", :force => true do |t|
     t.string   "title"
@@ -18,6 +18,16 @@ ActiveRecord::Schema.define(:version => 20101120021721) do
     t.string   "location"
     t.text     "description"
     t.string   "isbn"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "asin"
+    t.string   "author"
+    t.integer  "location_id"
+    t.string   "details_url"
+  end
+
+  create_table "locations", :force => true do |t|
+    t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -36,6 +46,8 @@ ActiveRecord::Schema.define(:version => 20101120021721) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "first_name"
+    t.string   "last_name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

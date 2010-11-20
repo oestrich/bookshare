@@ -12,20 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
-  </div>
-  <div class="field">
-    <%= f.label :user_id %><br />
-    <%= f.collection_select :user_id, User.all, :id, :email %>
+    <%= f.label :isbn %><br />
+    <%= f.text_field :isbn %>
   </div>
   <div class="field">
     <%= f.label :location %><br />
     <%= f.collection_select :location_id, Location.all, :id, :name %>
   </div>
   <div class="field">
-    <%= f.label :isbn %><br />
-    <%= f.text_field :isbn %>
+    <% if user_signed_in? %>
+       <%= f.hidden_field :user_id, :value => current_user.id %>
+    <% end %>
   </div>
   <div class="actions">
     <%= f.submit %>
