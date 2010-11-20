@@ -3,7 +3,9 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "please-change-me@config-initializers-devise.com"
+  config.mailer_sender = "foo@bookshare"
+  config.rpx_application_name = 'bookshare'
+  RPXNow.api_key = "INSERT KEY"
 
   # Configure the class responsible to send e-mails.
   # config.mailer = "Devise::Mailer"
