@@ -29,7 +29,8 @@ class Ability
     end
     
     if user.role == "guest"
-      can :read, Book 
+      can :read, Book
+      can :read, Location
     end
 
   end
