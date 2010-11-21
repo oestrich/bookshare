@@ -133,7 +133,7 @@ class BooksController < ApplicationController
     @borrower = current_user
     UserMailer.borrow_book_confirmation(@book, @borrower).deliver
     
-    redirect_to(@book, :notice => 'Book has been borrowed')
+    redirect_to(@book, :notice => 'Book has been borrowed and its owner has been notified.')
   end
 
   def return
@@ -141,7 +141,8 @@ class BooksController < ApplicationController
 
     @book.borrower_user_id = nil
     @book.save
-
-    redirect_to(@book, :notice => 'Book has been returned')
+    UserMailer.return_book_confirmation(@book, @borrower).deliver
+ 
+    redirect_to(@book, :notice => 'Book has been returned and owner has been notified')
   end
 end
