@@ -1,16 +1,16 @@
 <!-- <p id="notice"><%= notice %></p> -->
 
-<p>
+<p class='details'>
   <b><%= @book.title %></b> by 
   <%= @book.author %>
 </p>
 
-<p>
+<p class='details'>
   <b>Owner:</b>
   <%= @book.user.email %>
 </p>
 
-<p>
+<p class='details'>
   <b>Borrower:</b>
   <% if can? :borrow, Book %>
   <% if @book.borrower_user_id == nil %>
@@ -23,30 +23,30 @@
   <% end %>
 </p>
 
-<p>
+<p class='details'>
   <b>Location:</b>
   <%= @book.location.name %>
 </p>
 
-<p>
+<p class='details'>
   <b>Isbn:</b>
   <%= @book.isbn %>
 </p>
 
-<p>
+<p class='details'>
       <% if @book.borrower_user_id != nil %>
         <% buser = User.find(@book.borrower_user_id) %>
-        <div class='book_borrowed'>
+        <div class='book_borrowed details'>
           <%=  image_tag @book.image_url, :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
       <% else %>
-        <div class='book'>
-          <%= image_tag(@book.image_url) %> 
+        <div class='book details'>
+          <%= image_tag @book.image_url %> 
       <% end %>
       </div>
       <div style='clear: both;' />
 </p>
 
-<p>
+<p class='details'>
   <%= link_to "View details & related books on Amazon", @book.details_url, :target => "_blank" %>
 </p>
 <br />

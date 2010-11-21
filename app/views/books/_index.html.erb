@@ -1,6 +1,7 @@
 
 <% @locations.each do |location| %>
   <div class='location'>
+    <br />
     <h1><b><%= link_to location.name, "/locations/#{location.id}" %></b></h1>
       <br />
     <% location.books.each do |book| %>
