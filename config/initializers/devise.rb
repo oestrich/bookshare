@@ -3,7 +3,7 @@
 Devise.setup do |config|
   # ==> Mailer Configuration
   # Configure the e-mail address which will be shown in DeviseMailer.
-  config.mailer_sender = "foo@bookshare"
+  config.mailer_sender = "Team@BookShare.me"
   config.rpx_application_name = 'bookshare'
   RPXNow.api_key = "275f97d39850bcc292270a164ae2ea67a282fe54"
 
