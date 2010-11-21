@@ -1,15 +1,12 @@
 
-<% if can? :create, Book %>
-  <div class="new">
+<div class="new">
+  <% if can? :create, Book %>
     <%= link_to 'New Book', new_book_path %>
-  </div>
-<% end %>
-
-<% if can? :create, Location %>
-  <div class='new'>
+  <% end %>
+  <% if can? :create, Location %>
     <%= link_to "New Location", new_location_path %>
-  </div>
-<% end %>
+  <% end %>
+</div>
 
 <%= render :partial => 'index' %>
 
