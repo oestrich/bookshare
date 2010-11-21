@@ -49,7 +49,7 @@
 <% if can? :return, Book  %>
   <% if @book.borrower_user_id == current_user.id %>
     <%= link_to 'Return', return_book_path(@book) %> |
-  <% else %>
+  <% elsif @book.borrower_user_id == nil %>
     <%= link_to 'Borrow', borrow_book_path(@book) %> |
   <% end %>
 <% end %>
