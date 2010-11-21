@@ -74,7 +74,7 @@ class BooksController < ApplicationController
 
     respond_to do |format|
       if @book.save
-        format.html { redirect_to(@book, :notice => 'Book was successfully created.') }
+        format.html { redirect_to("/", :notice => "Successfully added #{@book.title}.") }
         format.xml  { render :xml => @book, :status => :created, :location => @book }
       else
         format.html { render :action => "new" }

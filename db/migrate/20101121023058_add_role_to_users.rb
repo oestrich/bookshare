@@ -1,6 +1,6 @@
 class AddRoleToUsers < ActiveRecord::Migration
   def self.up
-    add_column :users, :role, :string
+    add_column :users, :role, :string, :default => "user"
   end
 
   def self.down

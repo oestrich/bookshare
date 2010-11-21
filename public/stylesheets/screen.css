@@ -389,3 +389,9 @@ a img {
   clear: both;
   padding-bottom: 15px;
 }
+
+
+.user_nav{
+  clear: both;
+  float: left;
+}

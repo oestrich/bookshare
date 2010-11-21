@@ -10,13 +10,15 @@
 
 <div id="wrapper_one">
   <div id="wrapper_two">
+
     
-    <%= link_to_rpx "Sign in", user_session_url %>
     <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div id="header">
       <h1> Bookshare.me! </h1>
     </div>  
+    <%= render :partial => "shared/header" %>
+    <br />
     <div id="column_1">
     </div>
     <div id="column_2">
@@ -25,10 +27,10 @@
       <%= yield %>
     </div>
   </div>
+
+  <%= render :partial => "shared/footer" %>
+
 </div>
-
-
-<%= javascript_include_rpx(user_session_url) %>
 
 </body>
 </html>
