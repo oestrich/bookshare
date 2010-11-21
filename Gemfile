@@ -11,7 +11,8 @@ gem 'asin'
 gem 'nifty-generators'
 gem 'devise_rpx_connectable'
 gem 'compass'
-
+gem 'compass-960-plugin'
+gem 'haml'
 
 # Use unicorn as the web server
 # gem 'unicorn'
