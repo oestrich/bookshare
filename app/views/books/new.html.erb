@@ -3,3 +3,7 @@
 <%= render 'form.new' %>
 
 <%= link_to 'Back', books_path %>
+
+<% @locations = Location.all %>
+<br /><br />
+<%= render 'index' %>
