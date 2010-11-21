@@ -13,6 +13,7 @@ class Ability
     
     if user.role == "admin"
       can :manage, :all
+      can :about, Book
     end
       
     if user.role == "user"
@@ -26,11 +27,13 @@ class Ability
       can :manage, Location, :user_id => user.id
 
       can :read, Location
+      can :about, Book
     end
     
     if user.role == "guest"
       can :read, Book
       can :read, Location
+      can :about, Book
     end
 
   end
