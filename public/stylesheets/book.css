@@ -46,3 +46,7 @@ body {
 .details{
   margin-bottom: 10px;
 }
+
+.footer{
+  clear: both;
+}
