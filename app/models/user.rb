@@ -9,6 +9,8 @@ class User < ActiveRecord::Base
 
   has_many :books
 
+  has_many :locations
+
   validates :first_name, :last_name, :presence => true
 
   ROLES = %w[admin user guest]

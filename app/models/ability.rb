@@ -24,6 +24,8 @@ class Ability
       can :destroy, Book, :user_id => user.id
 
       can :manage, Location, :user_id => user.id
+
+      can :read, Location
     end
     
     if user.role == "guest"

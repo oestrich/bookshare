@@ -18,7 +18,7 @@
   </div>
   <div class="field">
     <%= f.label :location %><br />
-    <%= f.collection_select :location_id, Location.all, :id, :name %>
+    <%= f.collection_select :location_id, current_user.locations.all, :id, :name %>
   </div>
   <div class="field">
     <% if user_signed_in? %>
