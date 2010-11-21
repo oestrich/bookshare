@@ -1,24 +1,19 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <b>Title:</b>
-  <%= @book.title %>
-</p>
-
-<p>
-  <b>Author:</b>
+  <b><%= @book.title %></b> by 
   <%= @book.author %>
 </p>
 
 <p>
-  <b>User:</b>
+  <b>Owner:</b>
   <%= @book.user.email %>
 </p>
 
 <p>
   <b>Borrower:</b>
   <% if @book.borrower_user_id == nil %>
-    <%= link_to 'Borrow', borrow_book_path(@book) %> |
+    <%= link_to 'Borrow', borrow_book_path(@book) %> 
   <% else %>
     <%= User.find(@book.borrower_user_id).email %>
   <% end %>
@@ -30,19 +25,18 @@
 </p>
 
 <p>
-  <b>Description:</b>
-  <%= @book.description %>
-</p>
-
-<p>
   <b>Isbn:</b>
   <%= @book.isbn %>
 </p>
+
 <p>
-  <b>ASIN:</b>
-  <%= @book.asin %>
+  <%= image_tag @book.image_url, :title => @book.title, :alt => @book.title %> <br />
 </p>
 
+<p>
+  <b>Details:</b>
+  <%= link_to "Details", @book.details_url %>
+</p>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 
