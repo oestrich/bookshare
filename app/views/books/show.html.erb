@@ -16,6 +16,17 @@
 </p>
 
 <p>
+  <b>Borrower:</b>
+  <% if @book.borrower_user_id == nil %>
+    None
+  <% elsif @book.borrower_user_id != 0 %>
+    <%= User.find(@book.borrower_user_id).email %>
+  <% else %>
+    None
+  <% end %>
+</p>
+
+<p>
   <b>Location:</b>
   <%= @book.location.name %>
 </p>
@@ -36,5 +47,12 @@
 
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
+
+<% if @book.borrower_user_id == current_user.id %>
+  <%= link_to 'Return', return_book_path(@book) %> |
+<% else %>
+  <%= link_to 'Borrow', borrow_book_path(@book) %> |
+<% end %>
+
 <%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %>
 <%= link_to 'Back', books_path %>

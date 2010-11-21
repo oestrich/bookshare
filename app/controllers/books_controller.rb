@@ -106,8 +106,26 @@ class BooksController < ApplicationController
     @book.destroy
 
     respond_to do |format|
-      format.html { redirect_to(books_url) }
+      format.html { redirect_to(books_url, :notice => 'Book has been removed') }
       format.xml  { head :ok }
     end
+  end
+
+  def borrow
+    @book = Book.find(params[:id])
+
+    @book.borrower_user_id = current_user.id
+    @book.save
+
+    redirect_to(@book, :notice => 'Book has been borrowed')
+  end
+
+  def return
+    @book = Book.find(params[:id])
+
+    @book.borrower_user_id = 0
+    @book.save
+
+    redirect_to(@book, :notice => 'Book has been returned')
   end
 end

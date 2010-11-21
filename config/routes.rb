@@ -18,6 +18,9 @@ Bookshare::Application.routes.draw do
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
+  match 'books/:id/borrow' => 'books#borrow', :as => :borrow_book
+  match 'books/:id/return' => 'books#return', :as => :return_book
+
   # Sample resource route (maps HTTP verbs to controller actions automatically):
   #   resources :products
 
