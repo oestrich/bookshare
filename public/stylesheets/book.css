@@ -1,5 +1,21 @@
 .book {
   margin-bottom: 10px;
+  background-color: #94B894;
+
+  display: inline;
+  margin: 5px;
+  padding: 5px;
+  float: left;
+}
+
+.book_borrowed {
+  margin-bottom: 10px;
+  background-color: #966666;
+
+  display: inline;
+  margin: 5px;
+  padding: 5px;
+  float: left;
 }
 
 .notice{
@@ -23,3 +39,6 @@
   color: #444444;
 }
 
+body {
+  background-color: #E0E0D1;
+}

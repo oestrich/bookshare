@@ -34,7 +34,16 @@
 </p>
 
 <p>
-  <%= image_tag @book.image_url, :title => @book.title, :alt => @book.title %> <br />
+      <% if @book.borrower_user_id != nil %>
+        <% buser = User.find(@book.borrower_user_id) %>
+        <div class='book_borrowed'>
+          <%=  image_tag @book.image_url, :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
+      <% else %>
+        <div class='book'>
+          <%= image_tag(@book.image_url) %> 
+      <% end %>
+      </div>
+      <div style='clear: both;' />
 </p>
 
 <p>
