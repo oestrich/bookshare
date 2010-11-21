@@ -38,10 +38,9 @@
 </p>
 
 <p>
-  <b>Details:</b>
-  <%= link_to "Details", @book.details_url %>
+  <%= link_to "View details & related books on Amazon", @book.details_url, :target => "_blank" %>
 </p>
-
+<br />
 <% if can? :edit, Book %>
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <% end %>
