@@ -31,9 +31,14 @@ class BooksController < ApplicationController
   def new
     #@book = Book.new
 
-    respond_to do |format|
-      format.html # new.html.erb
-      format.xml  { render :xml => @book }
+    if Location.count == 0
+      redirect_to new_location_path, :notice => "Need to add a location first"
+    else
+
+      respond_to do |format|
+        format.html # new.html.erb
+        format.xml  { render :xml => @book }
+      end
     end
   end
 

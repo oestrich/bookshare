@@ -7,3 +7,13 @@
   font-size: 200%;
   padding-bottom: 10px;
 }
+
+#header {
+  font-size: 60px;
+}
+
+#header a {
+  text-decoration: none;
+  color: #444444;
+}
+
