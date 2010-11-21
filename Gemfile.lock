@@ -94,6 +94,7 @@ DEPENDENCIES
   cancan
   devise
   devise_rpx_connectable
+  mail
   nifty-generators
   rails (= 3.0.3)
   sqlite3-ruby
