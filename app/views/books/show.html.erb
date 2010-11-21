@@ -18,11 +18,9 @@
 <p>
   <b>Borrower:</b>
   <% if @book.borrower_user_id == nil %>
-    None
-  <% elsif @book.borrower_user_id != 0 %>
-    <%= User.find(@book.borrower_user_id).email %>
+    <%= link_to 'Borrow', borrow_book_path(@book) %> |
   <% else %>
-    None
+    <%= User.find(@book.borrower_user_id).email %>
   <% end %>
 </p>
 

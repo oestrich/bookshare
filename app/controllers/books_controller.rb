@@ -123,7 +123,7 @@ class BooksController < ApplicationController
   def return
     @book = Book.find(params[:id])
 
-    @book.borrower_user_id = 0
+    @book.borrower_user_id = nil
     @book.save
 
     redirect_to(@book, :notice => 'Book has been returned')
