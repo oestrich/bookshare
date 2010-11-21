@@ -10,4 +10,6 @@ class User < ActiveRecord::Base
   has_many :books
 
   validates :first_name, :last_name, :presence => true
+
+  ROLES = %w[admin user guest]
 end

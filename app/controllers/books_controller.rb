@@ -1,12 +1,12 @@
 class BooksController < ApplicationController
   include BooksHelper
 
-  before_filter :authenticate_user!
+  load_and_authorize_resource
 
   # GET /books
   # GET /books.xml
   def index
-    @books = Book.all
+    #@books = Book.all
     @locations = Location.all
 
     respond_to do |format|
@@ -18,7 +18,7 @@ class BooksController < ApplicationController
   # GET /books/1
   # GET /books/1.xml
   def show
-    @book = Book.find(params[:id])
+    #@book = Book.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -29,7 +29,7 @@ class BooksController < ApplicationController
   # GET /books/new
   # GET /books/new.xml
   def new
-    @book = Book.new
+    #@book = Book.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -39,7 +39,7 @@ class BooksController < ApplicationController
 
   # GET /books/1/edit
   def edit
-    @book = Book.find(params[:id])
+    #@book = Book.find(params[:id])
   end
 
   # POST /books
@@ -48,7 +48,7 @@ class BooksController < ApplicationController
     # use the configure method to setup your api credentials
     configure :secret => 'G6aSVuRonDppc5l1U10dRZW360LL+b3khm/9G6q9', :key => '0HFCVPEF9DTHP5DXV482'
 
-    @book = Book.new(params[:book])
+    #@book = Book.new(params[:book])
     
     item = lookup @book.isbn
     
@@ -86,7 +86,7 @@ class BooksController < ApplicationController
   # PUT /books/1
   # PUT /books/1.xml
   def update
-    @book = Book.find(params[:id])
+    #@book = Book.find(params[:id])
 
     respond_to do |format|
       if @book.update_attributes(params[:book])
@@ -102,7 +102,7 @@ class BooksController < ApplicationController
   # DELETE /books/1
   # DELETE /books/1.xml
   def destroy
-    @book = Book.find(params[:id])
+    #@book = Book.find(params[:id])
     @book.destroy
 
     respond_to do |format|
@@ -112,7 +112,7 @@ class BooksController < ApplicationController
   end
 
   def borrow
-    @book = Book.find(params[:id])
+    #@book = Book.find(params[:id])
 
     @book.borrower_user_id = current_user.id
     @book.save
@@ -121,7 +121,7 @@ class BooksController < ApplicationController
   end
 
   def return
-    @book = Book.find(params[:id])
+    #@book = Book.find(params[:id])
 
     @book.borrower_user_id = nil
     @book.save

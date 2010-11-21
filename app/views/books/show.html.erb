@@ -12,10 +12,14 @@
 
 <p>
   <b>Borrower:</b>
+  <% if can? :borrow, Book %>
   <% if @book.borrower_user_id == nil %>
     <%= link_to 'Borrow', borrow_book_path(@book) %> 
   <% else %>
     <%= User.find(@book.borrower_user_id).email %>
+  <% end %>
+  <% else %>
+    <%= link_to 'Signup', new_user_registration_path() %> to borrow!
   <% end %>
 </p>
 
@@ -38,13 +42,20 @@
   <%= link_to "Details", @book.details_url %>
 </p>
 
+<% if can? :edit, Book %>
 <%= link_to 'Edit', edit_book_path(@book) %> |
+<% end %>
 
+<% if can? :return, Book  %>
 <% if @book.borrower_user_id == current_user.id %>
   <%= link_to 'Return', return_book_path(@book) %> |
 <% else %>
   <%= link_to 'Borrow', borrow_book_path(@book) %> |
 <% end %>
+<% end %>
 
+<% if can? :destroy, Book %>
 <%= link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete %>
+<% end %>
+
 <%= link_to 'Back', books_path %>
