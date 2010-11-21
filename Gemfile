@@ -10,6 +10,7 @@ gem 'devise'
 gem 'asin'
 gem 'nifty-generators'
 gem 'devise_rpx_connectable'
+gem 'cancan'
 
 # Use unicorn as the web server
 # gem 'unicorn'
