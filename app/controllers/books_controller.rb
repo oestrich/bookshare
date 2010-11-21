@@ -1,4 +1,6 @@
 class BooksController < ApplicationController
+  include BooksHelper
+
   before_filter :authenticate_user!
 
   # GET /books
@@ -46,9 +48,17 @@ class BooksController < ApplicationController
     # use the configure method to setup your api credentials
     configure :secret => 'G6aSVuRonDppc5l1U10dRZW360LL+b3khm/9G6q9', :key => '0HFCVPEF9DTHP5DXV482'
 
-    
     @book = Book.new(params[:book])
+    
     item = lookup @book.isbn
+    
+    if item.raw == nil
+      #convert UPC to isbn
+      @book.isbn = convert @book.isbn
+
+      item = lookup @book.isbn
+    end
+
     images = lookup(@book.isbn, {:ResponseGroup => "Images"})
 
     @book.title = item.title
