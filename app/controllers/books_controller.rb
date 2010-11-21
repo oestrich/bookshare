@@ -130,6 +130,9 @@ class BooksController < ApplicationController
     @book.borrower_user_id = current_user.id
     @book.save
 
+    @borrower = current_user
+    UserMailer.borrow_book_confirmation(@book, @borrower).deliver
+    
     redirect_to(@book, :notice => 'Book has been borrowed')
   end
 
