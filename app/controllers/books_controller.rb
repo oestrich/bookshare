@@ -145,4 +145,8 @@ class BooksController < ApplicationController
  
     redirect_to(@book, :notice => 'Book has been returned and owner has been notified')
   end
+  
+  def about
+  end
+  
 end
