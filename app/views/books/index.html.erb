@@ -5,6 +5,12 @@
   </div>
 <% end %>
 
+<% if can? :create, Location %>
+  <div class='new'>
+    <%= link_to "New Location", new_location_path %>
+  </div>
+<% end %>
+
 <%= render :partial => 'index' %>
 
 <br />

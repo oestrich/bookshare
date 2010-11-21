@@ -21,6 +21,8 @@ class Ability
       can :borrow, Book
       can :return, Book
 
+      can :destroy, Book, :user_id => user.id
+
       can :manage, Location, :user_id => user.id
     end
     
