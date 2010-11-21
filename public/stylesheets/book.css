@@ -1,3 +1,9 @@
 .book {
   margin-bottom: 10px;
 }
+
+.notice{
+  color: green;
+  font-size: 200%;
+  padding-bottom: 10px;
+}

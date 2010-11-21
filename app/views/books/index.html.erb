@@ -8,13 +8,13 @@
 <% @locations.each do |location| %>
   <div class='location'>
     <h2><%= location.name %></h2>
+
     <% location.books.each do |book| %>
       <div class='book'>
-       <%= link_to image_tag(book.image_url), book %> 
-<!--    <%= link_to 'Destroy', book, :confirm => 'Are you sure?', :method => :delete %> -->
-        <br />
+        <%= link_to image_tag(book.image_url), book %> 
       </div>
-    <%end%>
+    <% end %>
+
   </div>
 <% end %>
 

@@ -3,6 +3,7 @@
 <head>
   <title>Bookshare</title>
   <%= stylesheet_link_tag 'screen' %>
+  <%= stylesheet_link_tag 'book' %>
   <%= javascript_include_tag :defaults %>
   <%= csrf_meta_tag %>
 </head>
@@ -12,7 +13,6 @@
   <div id="wrapper_two">
 
     
-    <p class="notice"><%= notice %></p>
     <p class="alert"><%= alert %></p>
     <div id="header">
       <h1> Bookshare.me! </h1>
@@ -24,6 +24,7 @@
     <div id="column_2">
     </div>
     <div id="main">
+      <p class="notice"><%= notice %></p> 
       <%= yield %>
     </div>
   </div>
