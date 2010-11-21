@@ -31,7 +31,7 @@ class BooksController < ApplicationController
   def new
     #@book = Book.new
 
-    if Location.count == 0
+    if current_user.locations.count == 0
       redirect_to new_location_path, :notice => "Need to add a location first"
     else
 
