@@ -64,29 +64,37 @@ class BooksController < ApplicationController
       item = lookup @book.isbn
     end
 
-    images = lookup(@book.isbn, {:ResponseGroup => "Images"})
 
-    @book.title = item.title
-    @book.asin = item.raw.ASIN
-    @book.details_url = item.raw.DetailPageURL
-    @book.image_url = images.raw.ImageSets.ImageSet.MediumImage.URL
+    if item.raw != nil
 
-    if item.raw.ItemAttributes.Author.class == Array
-      @book.author = item.raw.ItemAttributes.Author.join ", "
-    else
-      @book.author = item.raw.ItemAttributes.Author
-    end
+      images = lookup(@book.isbn, {:ResponseGroup => "Images"})
 
-    respond_to do |format|
-      if @book.save
-        format.html { redirect_to(new_book_path, :notice => "Successfully added #{@book.title}.") }
-        format.xml  { render :xml => @book, :status => :created, :location => @book }
+      @book.title = item.title
+      @book.asin = item.raw.ASIN
+      @book.details_url = item.raw.DetailPageURL
+      @book.image_url = images.raw.ImageSets.ImageSet.MediumImage.URL
+
+      if item.raw.ItemAttributes.Author.class == Array
+        @book.author = item.raw.ItemAttributes.Author.join ", "
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
+        @book.author = item.raw.ItemAttributes.Author
       end
+
+      respond_to do |format|
+        if @book.save
+          format.html { redirect_to(new_book_path, :notice => "Successfully added #{@book.title}.") }
+          format.xml  { render :xml => @book, :status => :created, :location => @book }
+        else
+          format.html { render :action => "new" }
+          format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
+        end
+      end
+    else
+      flash[:alert] = "Invalid barcode"
+      redirect_to "/books/new"
     end
   end
+
 
   # PUT /books/1
   # PUT /books/1.xml
