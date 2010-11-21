@@ -1,7 +1,7 @@
 
 <% @locations.each do |location| %>
   <div class='location'>
-    <h2><%= location.name %></h2>
+    <h1><b><%= link_to location.name, "locations/#{location.id}" %></b></h1>
 
     <% location.books.each do |book| %>
       <div class='book'>
