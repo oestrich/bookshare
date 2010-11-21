@@ -1,0 +1,44 @@
+@import compass/reset
+@import 960/grid
+
+
+#wrapper_one
+  margin-left: auto
+  margin-right: auto
+  width: 960px
+  text-align:center
+
+#wrapper_two
+  +grid-system(12)
+  +grid(12,12)
+  
+#header
+  background-color: gray
+  padding-top: 30px
+  padding-bottom: 30px
+  padding-left: 10px
+  padding-right: 20px
+  h1
+    font-size: 60px
+    
+#column_1
+  +grid(3,12)
+  +alpha
+  background-color: blue
+  
+
+#column_2
+  +grid(9,12)
+  background-color: green
+  +omega
+
+#main
+  +grid(12,12)
+  +alpha
+  +omega
+  border: 1px solid black
+    
+.book
+  display: inline
+  padding: 10px
+  float: left
