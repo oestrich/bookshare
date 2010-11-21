@@ -1,8 +1,8 @@
 
 <% if can? :create, Book %>
-<div class="new">
-<%= link_to 'New Book', new_book_path %>
-</div>
+  <div class="new">
+    <%= link_to 'New Book', new_book_path %>
+  </div>
 <% end %>
 
 <% @locations.each do |location| %>

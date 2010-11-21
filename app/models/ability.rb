@@ -2,7 +2,12 @@ class Ability
   include CanCan::Ability
 
   def initialize(user)
-    user ||= User.new(:role=>"guest") # guest user
+    user ||= User.new() # guest user
+
+    # Probably shouldn't be this way...
+    if user.email == '' 
+      user.role = "guest"
+    end
 
     alias_action :view, :to => :read
     
@@ -23,9 +28,5 @@ class Ability
       can :read, Book 
     end
 
-    if user.role == nil
-      can :read, Book
-    end
-    
   end
 end

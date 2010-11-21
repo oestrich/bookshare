@@ -112,7 +112,7 @@ class BooksController < ApplicationController
   end
 
   def borrow
-    #@book = Book.find(params[:id])
+    @book = Book.find(params[:id])
 
     @book.borrower_user_id = current_user.id
     @book.save

@@ -47,11 +47,11 @@
 <% end %>
 
 <% if can? :return, Book  %>
-<% if @book.borrower_user_id == current_user.id %>
-  <%= link_to 'Return', return_book_path(@book) %> |
-<% else %>
-  <%= link_to 'Borrow', borrow_book_path(@book) %> |
-<% end %>
+  <% if @book.borrower_user_id == current_user.id %>
+    <%= link_to 'Return', return_book_path(@book) %> |
+  <% else %>
+    <%= link_to 'Borrow', borrow_book_path(@book) %> |
+  <% end %>
 <% end %>
 
 <% if can? :destroy, Book %>
