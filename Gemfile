@@ -10,13 +10,10 @@ gem 'devise'
 gem 'asin'
 gem 'nifty-generators'
 gem 'devise_rpx_connectable'
-<<<<<<< HEAD
 gem 'cancan'
-=======
 gem 'compass'
 gem 'compass-960-plugin'
 gem 'haml'
->>>>>>> compass
 
 # Use unicorn as the web server
 # gem 'unicorn'
