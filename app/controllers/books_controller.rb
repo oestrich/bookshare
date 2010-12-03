@@ -68,11 +68,13 @@ class BooksController < ApplicationController
     if item.raw != nil
 
       images = lookup(@book.isbn, {:ResponseGroup => "Images"})
-
+      offers = lookup(@book.isbn, {:ResponseGroup => "Offers"})
+      
       @book.title = item.title
       @book.asin = item.raw.ASIN
       @book.details_url = item.raw.DetailPageURL
       @book.image_url = images.raw.ImageSets.ImageSet.MediumImage.URL
+      @book.lowest_used_price = offers.raw.OfferSummary.LowestUsedPrice.FormattedPrice
 
       if item.raw.ItemAttributes.Author.class == Array
         @book.author = item.raw.ItemAttributes.Author.join ", "
