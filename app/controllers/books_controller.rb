@@ -7,8 +7,13 @@ class BooksController < ApplicationController
   # GET /books.xml
   def index
     #@books = Book.all
-    @locations = Location.all
-
+    if user_signed_in?
+      @locations = Location.where(:user_id => current_user.id)
+      @locations = @locations + Location.where("user_id <> #{current_user.id}")
+    else
+      @locations = Location.all
+    end
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @books }
@@ -19,10 +24,6 @@ class BooksController < ApplicationController
   # GET /books/1.xml
   def show
     #@book = Book.find(params[:id])
-    configure :secret => 'G6aSVuRonDppc5l1U10dRZW360LL+b3khm/9G6q9', :key => '0HFCVPEF9DTHP5DXV482'
-
-    offers = lookup(@book.isbn, {:ResponseGroup => "Offers"})
-    @book.lowest_used_price = offers.raw.OfferSummary.LowestUsedPrice.FormattedPrice
 
     respond_to do |format|
       format.html # show.html.erb
@@ -72,13 +73,13 @@ class BooksController < ApplicationController
     if item.raw != nil
 
       images = lookup(@book.isbn, {:ResponseGroup => "Images"})
-      #offers = lookup(@book.isbn, {:ResponseGroup => "Offers"})
+      offers = lookup(@book.isbn, {:ResponseGroup => "Offers"})
       
       @book.title = item.title
       @book.asin = item.raw.ASIN
       @book.details_url = item.raw.DetailPageURL
       @book.image_url = images.raw.ImageSets.ImageSet.MediumImage.URL
-      #@book.lowest_used_price = offers.raw.OfferSummary.LowestUsedPrice.FormattedPrice
+      @book.lowest_used_price = offers.raw.OfferSummary.LowestUsedPrice.FormattedPrice
 
       if item.raw.ItemAttributes.Author.class == Array
         @book.author = item.raw.ItemAttributes.Author.join ", "
