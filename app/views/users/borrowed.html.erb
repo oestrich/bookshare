@@ -1,0 +1,24 @@
+
+<h1> Books being borrowed </h1>
+  <% current_user.locations.each do |location| %>
+    <div class='location'>
+      <% has_books = false %>
+      <br />
+      <h1><b><%= link_to location.name, "/locations/#{location.id}" %></b></h1>
+      <br />
+      <% location.books.each do |book| %>
+        <% if book.borrower_user_id != nil %>
+          <% has_books = true %>
+          <% buser = User.find(book.borrower_user_id) %>
+          <div class='book_borrowed'>
+            <%= link_to image_tag(book.image_url), book, :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
+          </div>
+        <% end %>
+      <% end %>
+
+      <% if has_books == false %>
+       No books are being borrowed in this location.
+      <% end %>
+    </div>
+  <% end %>
+

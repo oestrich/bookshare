@@ -14,6 +14,9 @@ class Ability
     if user.role == "admin"
       can :manage, :all
       can :about, Book
+
+      can :borrowed, User
+      can :borrowing, User
     end
       
     if user.role == "user"
@@ -28,6 +31,9 @@ class Ability
 
       can :read, Location
       can :about, Book
+
+      can :borrowed, User
+      can :borrowing, User
     end
     
     if user.role == "guest"

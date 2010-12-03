@@ -1,9 +1,14 @@
 Bookshare::Application.routes.draw do
   resources :locations
-
   devise_for :users
+  
+  match 'users/borrowing' => 'users#borrowing', :as => :users_borrowing
+  match 'users/borrowed' => 'users#borrowed', :as => :users_borrowed
+  resources :users
+
 
   resources :books
+
 
   root :to => "books#index"
 

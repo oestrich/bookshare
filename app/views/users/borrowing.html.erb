@@ -1,0 +1,5 @@
+<% @books.each do |book| %>
+  <div class='book_borrowed'>
+    <%= link_to image_tag(book.image_url), book, :title => "#{@user.first_name} #{@user.last_name} is borrowing this book." %> 
+  </div>
+<% end %>
