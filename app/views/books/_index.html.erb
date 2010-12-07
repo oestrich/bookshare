@@ -9,11 +9,10 @@
         <% buser = User.find(book.borrower_user_id) %>
         <div class='book_borrowed'>
           <%= link_to image_tag(book.image_url), book, :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
+        </div>
       <% else %>
-        <div class='book'>
-          <%= link_to image_tag(book.image_url), book %> 
+        <%= render book %>
       <% end %>
-      </div>
     <% end %>
 
   </div>

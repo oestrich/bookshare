@@ -8,9 +8,7 @@
 </p>
 
 <% @location.books.each do |book| %>
-  <div class='book'>
-    <%= link_to image_tag(book.image_url), book %>
-  </div>
+  <%= render book %>
 <% end %>
 
 <div style="clear: both;" >
