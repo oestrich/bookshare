@@ -7,11 +7,13 @@
   padding: 5px;
   float: left;
 }
+
 .book .title {
   font-size:60%;
   text-align:center;
   width:100px;
-  height:30px;
+  margin-left: auto;
+  margin-right: auto;
 }
 
 .borrowed {
