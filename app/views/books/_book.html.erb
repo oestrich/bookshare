@@ -1,4 +1,13 @@
-<div class='book'>
-  <%= link_to image_tag(book.image_url), book %>
+<% if book.borrower_user_id != nil %>
+  <% buser = User.find(book.borrower_user_id) %>
+  <div class='book borrowed'>
+    <%= link_to image_tag(book.image_url), book, :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
+<% else %>
+  <div class='book'>
+    <%= link_to image_tag(book.image_url), book %>
+
+<% end %>
   <p class='title'><%= book.title %></p>
 </div>
+
+

@@ -14,14 +14,8 @@
   height:30px;
 }
 
-.book_borrowed {
-  margin-bottom: 10px;
+.borrowed {
   background-color: #966666;
-
-  display: inline;
-  margin: 5px;
-  padding: 5px;
-  float: left;
 }
 
 .notice{
