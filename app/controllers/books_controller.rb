@@ -59,19 +59,23 @@ class BooksController < ApplicationController
     configure :secret => 'G6aSVuRonDppc5l1U10dRZW360LL+b3khm/9G6q9', :key => '0HFCVPEF9DTHP5DXV482'
 
     #@book = Book.new(params[:book])
-    
+
+    if @book.isbn == ""
+      flash[:alert] = "A barcode is required."
+      redirect_to "/books/new"
+      return 
+    end
+
     item = lookup @book.isbn
     
-    if item.raw == nil
+    if item.raw.nil?
       #convert UPC to isbn
       @book.isbn = convert @book.isbn
 
       item = lookup @book.isbn
     end
 
-
     if item.raw != nil
-
       images = lookup(@book.isbn, {:ResponseGroup => "Images"})
       offers = lookup(@book.isbn, {:ResponseGroup => "Offers"})
       
