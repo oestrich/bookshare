@@ -55,54 +55,18 @@ class BooksController < ApplicationController
   # POST /books
   # POST /books.xml
   def create
-    # use the configure method to setup your api credentials
-    configure :secret => 'G6aSVuRonDppc5l1U10dRZW360LL+b3khm/9G6q9', :key => '0HFCVPEF9DTHP5DXV482'
-
-    #@book = Book.new(params[:book])
-
-    if @book.isbn == ""
-      flash[:alert] = "A barcode is required."
-      redirect_to "/books/new"
-      return 
-    end
-
-    item = lookup @book.isbn
-    
-    if item.raw.nil?
-      #convert UPC to isbn
-      @book.isbn = convert @book.isbn
-
-      item = lookup @book.isbn
-    end
-
-    if item.raw != nil
-      images = lookup(@book.isbn, {:ResponseGroup => "Images"})
-      offers = lookup(@book.isbn, {:ResponseGroup => "Offers"})
-      
-      @book.title = item.title
-      @book.asin = item.raw.ASIN
-      @book.details_url = item.raw.DetailPageURL
-      @book.image_url = images.raw.ImageSets.ImageSet.MediumImage.URL
-      @book.lowest_used_price = offers.raw.OfferSummary.LowestUsedPrice.FormattedPrice
-
-      if item.raw.ItemAttributes.Author.class == Array
-        @book.author = item.raw.ItemAttributes.Author.join ", "
+    @book = current_user.books.new_from_isbn_or_upc(params[:book][:isbn])
+    @book.location = current_user.locations.find params[:book][:location_id]
+        
+    respond_to do |format|
+      if @book.save
+        format.html { redirect_to(new_book_path, :notice => "Successfully added #{@book.title}.") }
+        format.xml  { render :xml => @book, :status => :created, :location => @book }
       else
-        @book.author = item.raw.ItemAttributes.Author
+        flash[:alert] = "Invalid barcode" 
+        format.html { render :action => "new" }
+        format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
       end
-
-      respond_to do |format|
-        if @book.save
-          format.html { redirect_to(new_book_path, :notice => "Successfully added #{@book.title}.") }
-          format.xml  { render :xml => @book, :status => :created, :location => @book }
-        else
-          format.html { render :action => "new" }
-          format.xml  { render :xml => @book.errors, :status => :unprocessable_entity }
-        end
-      end
-    else
-      flash[:alert] = "Invalid barcode"
-      redirect_to "/books/new"
     end
   end
 
