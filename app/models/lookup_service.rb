@@ -52,6 +52,7 @@ private
   end
   
   def self.convert_upc_to_isbn(upc)
+    return nil if upc.nil? || upc.empty?
     # loosely based on http://snipplr.com/view/13299/convert-upc-to-isbn/
     isbn = upc[3..-2]
     add = 0
