@@ -1,6 +1,7 @@
 class Book < ActiveRecord::Base
   belongs_to :location
   belongs_to :user
+  has_many :requests
 
   validates :location_id, :title, :user_id, :isbn, :presence => true
   
