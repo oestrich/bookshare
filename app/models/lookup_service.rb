@@ -58,7 +58,7 @@ private
     add = 0
     count = 10
     index = 0
-    while index < isbn.length():
+    while index < isbn.length()
         a = isbn[index..index]
         add += a.to_i() * count
         index += 1
