@@ -1,4 +1,6 @@
 Bookshare::Application.routes.draw do
+  resources :requests
+
   resources :locations
   devise_for :users
   
