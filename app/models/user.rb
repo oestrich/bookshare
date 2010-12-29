@@ -15,4 +15,9 @@ class User < ActiveRecord::Base
   validates :first_name, :last_name, :presence => true
 
   ROLES = %w[admin user guest]
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
 end

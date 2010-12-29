@@ -15,10 +15,15 @@
     <%= render @book %>
     <%= f.hidden_field :book_id %>
   </div>
-  <div class="field" style="clear: both">
+  <div class='field' id='message'>
+    <%= f.label :message %><br />
+    <%= f.text_area :message, :rows => 10 %>
+  </div>
+  <div class="field" >
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+  <div style='clear: both' />
 <% end %>

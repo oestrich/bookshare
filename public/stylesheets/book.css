@@ -58,3 +58,14 @@ body {
 .request #title{
   font-size: 2em;
 }
+
+.request #name {
+  font-size 2em;
+}
+
+.request #message{
+  font-size: 1.2em;
+  padding: 10px;
+  padding-left: 15px;
+}
+
