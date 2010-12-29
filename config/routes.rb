@@ -1,6 +1,8 @@
 Bookshare::Application.routes.draw do
   resources :requests
 
+  match 'requests/new/:id' => 'requests#new', :as => :new_request_id
+
   resources :locations
   devise_for :users
   
@@ -26,6 +28,7 @@ Bookshare::Application.routes.draw do
   # This route can be invoked with purchase_url(:id => product.id)
 
   match 'books/:id/borrow' => 'books#borrow', :as => :borrow_book
+
   match 'books/:id/return' => 'books#return', :as => :return_book
   match 'about' => 'books#about', :as => :about
 

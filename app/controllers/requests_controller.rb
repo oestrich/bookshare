@@ -24,6 +24,7 @@ class RequestsController < ApplicationController
   # GET /requests/new
   # GET /requests/new.xml
   def new
+    @book = Book.find(params[:id])
     @request = Request.new
 
     respond_to do |format|
