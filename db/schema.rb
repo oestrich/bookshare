@@ -30,11 +30,11 @@ ActiveRecord::Schema.define(:version => 20101229012951) do
   end
 
   create_table "locations", :force => true do |t|
-    t.string   "name"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-    t.integer  "user_id"
-    t.boolean  "public",     :default => false
+    t.string    "name"
+    t.timestamp "created_at"
+    t.timestamp "updated_at"
+    t.integer   "user_id"
+    t.boolean   "public",     :default => false
   end
 
   create_table "requests", :force => true do |t|
