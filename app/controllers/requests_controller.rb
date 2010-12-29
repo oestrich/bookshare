@@ -36,6 +36,7 @@ class RequestsController < ApplicationController
   # GET /requests/1/edit
   def edit
     @request = Request.find(params[:id])
+    @book = Book.find(@request.book)
   end
 
   # POST /requests

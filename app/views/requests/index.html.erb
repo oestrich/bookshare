@@ -1,25 +1,3 @@
-<h1>Listing requests</h1>
+<h1>Your requests</h1>
 
-<table>
-  <tr>
-    <th>Book</th>
-    <th>User</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @requests.each do |request| %>
-  <tr>
-    <td><%= request.book_id %></td>
-    <td><%= request.user_id %></td>
-    <td><%= link_to 'Show', request %></td>
-    <td><%= link_to 'Edit', edit_request_path(request) %></td>
-    <td><%= link_to 'Destroy', request, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
-
-<br />
-
-<%= link_to 'New Request', new_request_path %>

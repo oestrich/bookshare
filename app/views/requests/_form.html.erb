@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= render @book %>
-    <%= f.hidden_field :book_id %>
+    <%= f.hidden_field :book_id, :value => @book.id %>
   </div>
   <div class='field' id='message'>
     <%= f.label :message %><br />
