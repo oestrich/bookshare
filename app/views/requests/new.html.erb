@@ -1,0 +1,8 @@
+<div class='request'>
+  <div id='title'>
+    Would you like to borrow <%= @book.title %>?
+  </div>
+  <%= render 'form' %>
+
+  <%= link_to 'Back', requests_path %>
+</div>

@@ -54,3 +54,7 @@ body {
   padding-top: 20px;
   text-align: center;
 }
+
+.request #title{
+  font-size: 2em;
+}
