@@ -1,0 +1,19 @@
+<div class='request'>
+  <div >
+    You are requesting:
+  </div>
+
+  <div id='title'>
+    <%= @book.title %> <br />
+  </div>
+
+  <div id='name'>
+    from <%= @book.user.name %>
+  </div>
+
+  <br />
+
+  <%= render 'form' %>
+
+  <%= link_to 'Back', requests_path %>
+</div>

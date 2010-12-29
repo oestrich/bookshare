@@ -13,11 +13,15 @@
 <p class='details'>
   <b>Borrower:</b>
   <% if can? :borrow, Book %>
-  <% if @book.borrower_user_id == nil %>
-    <%= link_to 'Borrow', borrow_book_path(@book) %> 
-  <% else %>
-    <%= User.find(@book.borrower_user_id).email %>
-  <% end %>
+    <% if @book.borrower_user_id == nil %>
+      <% if !@book.location.public %>
+        <%= link_to 'Request this book', new_request_id_path(@book) %>
+      <% else %>
+        <%= link_to 'Borrow', borrow_book_path(@book) %> 
+      <% end %>
+    <% else %>
+      <%= User.find(@book.borrower_user_id).email %>
+    <% end %>
   <% else %>
     <%= link_to 'Signup', new_user_registration_path() %> to borrow!
   <% end %>

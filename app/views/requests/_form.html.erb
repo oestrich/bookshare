@@ -1,0 +1,29 @@
+<%= form_for(@request) do |f| %>
+  <% if @request.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@request.errors.count, "error") %> prohibited this request from being saved:</h2>
+
+      <ul>
+      <% @request.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= render @book %>
+    <%= f.hidden_field :book_id, :value => @book.id %>
+  </div>
+  <div class='field' id='message'>
+    <%= f.label :message %><br />
+    <%= f.text_area :message, :rows => 10 %>
+  </div>
+  <div class="field" >
+    <%= f.hidden_field :user_id, :value => current_user.id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <div style='clear: both' />
+<% end %>

@@ -8,10 +8,16 @@ class User < ActiveRecord::Base
   attr_accessible :first_name, :last_name, :email, :password, :password_confirmation, :remember_me
 
   has_many :books
+  has_many :requests
 
   has_many :locations
 
   validates :first_name, :last_name, :presence => true
 
   ROLES = %w[admin user guest]
+
+  def name
+    "#{first_name} #{last_name}"
+  end
+
 end
