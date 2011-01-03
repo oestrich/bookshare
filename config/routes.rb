@@ -2,6 +2,7 @@ Bookshare::Application.routes.draw do
   resources :requests
 
   match 'requests/new/:id' => 'requests#new', :as => :new_request_id
+  match 'requests/:id/approve' => 'requests#approve', :as => :request_approve
 
   resources :locations
   devise_for :users

@@ -7,3 +7,14 @@
     <%= link_to 'Remove Request', request, :confirm => 'Are you sure?', :method => :delete %>
   </div>
 <% end %>
+
+<br />
+<h1>Books that others want to borrow:</h1>
+
+<% current_user.my_requested.each do |request| %>
+  <div class='request'>
+    <span class='name'><%= request.user.name %></span> wants to borrow <br />
+    <span class='title'><%= link_to request.book.title, request.book %></span> <br />
+    <%= link_to 'Approve Request', request_approve_path(request) %>
+  </div>
+<% end %>

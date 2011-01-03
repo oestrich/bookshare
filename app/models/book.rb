@@ -12,12 +12,4 @@ class Book < ActiveRecord::Base
   def is_requested?()
     !Request.where(:book_id => id).empty?
   end
-
-  def status()
-    if is_requested?
-      return "Requested"
-    else
-      return link_to 'Request this book',new_request_id_path (self)
-    end
-  end
 end

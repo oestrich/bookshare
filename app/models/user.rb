@@ -20,4 +20,14 @@ class User < ActiveRecord::Base
     "#{first_name} #{last_name}"
   end
 
+  def my_requested()
+    requested = []
+    books.each do |book|
+      if !book.requests.empty?
+        requested << book.requests
+      end
+    end
+    requested.flatten
+  end
+
 end
