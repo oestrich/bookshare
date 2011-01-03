@@ -1,3 +1,8 @@
-<h1>Your requests</h1>
+<h1>You are asking to borrow:</h1>
 
-
+<% @requests.each do |request| %>
+  <div class='request'>
+    <span class='title'><%= link_to request.book.title, request.book%></span> <br />
+    <span class='name'>from <%= request.user.name %></span>
+  </div>
+<% end %>

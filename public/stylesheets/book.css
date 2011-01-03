@@ -59,17 +59,32 @@ body {
   text-align: center;
 }
 
-.request #title{
+.request_new #title{
   font-size: 2em;
 }
 
-.request #name {
+.request_new #name {
   font-size 2em;
 }
 
-.request #message{
+.request_new #message{
   font-size: 1.2em;
   padding: 10px;
   padding-left: 15px;
+}
+
+/**
+ * Requests
+ */
+.request {
+  margin: 10px;
+}
+
+.title {
+  font-size: 1.5em;
+}
+
+.name {
+  padding-left: 10px;
 }
 
