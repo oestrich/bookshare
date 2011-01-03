@@ -1,4 +1,6 @@
 class RequestsController < ApplicationController
+  load_and_authorize_resource 
+
   # GET /requests
   # GET /requests.xml
   def index
