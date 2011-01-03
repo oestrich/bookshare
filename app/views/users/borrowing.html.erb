@@ -1,9 +1,9 @@
 <% @books.each do |book| %>
-  <div class='book_borrowed'>
+  <div class='book borrowed'>
     <%= link_to image_tag(book.image_url), book, :title => "#{@user.first_name} #{@user.last_name} is borrowing this book." %> 
   </div>
 <% end %>
 
-<% if @book == nil %>
+<% if @books.empty? %>
   You are not borrowing any books.
 <% end %>

@@ -10,7 +10,7 @@
         <% if book.borrower_user_id != nil %>
           <% has_books = true %>
           <% buser = User.find(book.borrower_user_id) %>
-          <div class='book_borrowed'>
+          <div class='book borrowed'>
             <%= link_to image_tag(book.image_url), book, :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
           </div>
         <% end %>
