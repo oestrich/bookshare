@@ -4,5 +4,6 @@
   <div class='request'>
     <span class='title'><%= link_to request.book.title, request.book%></span> <br />
     <span class='name'>from <%= request.user.name %></span>
+    <%= link_to 'Remove Request', request, :confirm => 'Are you sure?', :method => :delete %>
   </div>
 <% end %>
