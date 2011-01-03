@@ -15,6 +15,11 @@
     <%= f.label :name %><br />
     <%= f.text_field :name %>
   </div>
+  <div class='field'>
+    <%= f.label :public %><br />
+    <%= f.radio_button :public, true %> Yes
+    <%= f.radio_button :public, false %> No
+  </div>
   <div class="field">
     <%= f.hidden_field :user_id, :value => current_user.id %>
   </div>
