@@ -49,8 +49,11 @@
 <p class='details'>
       <% if @book.borrower_user_id != nil %>
         <% buser = User.find(@book.borrower_user_id) %>
-        <div class='book_borrowed details'>
+        <div class='book borrowed details'>
           <%=  image_tag @book.image_url, :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
+      <% elsif @book.is_requested? %>
+        <div class='book requested details'>
+          <%= image_tag @book.image_url %>
       <% else %>
         <div class='book details'>
           <%= image_tag @book.image_url %> 
