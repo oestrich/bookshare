@@ -10,6 +10,7 @@ div.filter{
   padding: 10px;
   float: left;
 }
+
 .book .title {
   font-size:60%;
   text-align:center;
@@ -22,6 +23,10 @@ div.filter{
 
 .borrowed {
   background-color: #966666;
+}
+
+.requested {
+  background-color: #ff8844;
 }
 
 .notice{

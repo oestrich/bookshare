@@ -15,7 +15,11 @@
   <% if can? :borrow, Book %>
     <% if @book.borrower_user_id == nil %>
       <% if !@book.location.public %>
-        <%= link_to 'Request this book', new_request_id_path(@book) %>
+        <% if @book.is_requested? %>
+          Requested
+        <% else %>
+          <%= link_to 'Request this book', new_request_id_path(@book) %>
+        <% end %>
       <% else %>
         <%= link_to 'Borrow', borrow_book_path(@book) %> 
       <% end %>

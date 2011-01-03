@@ -5,6 +5,8 @@
     <%= link_to "Books borrowed from me", users_borrowed_path %>
     <br />
     <%= link_to "Books I'm borrowing", users_borrowing_path %>
+    <br />
+    <%= link_to "Requests", requests_path %>
   <% else %>
     <%= link_to "Sign up", new_user_registration_path %> or <%= link_to "Sign in", new_user_session_path %>
   <% end %>
