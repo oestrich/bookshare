@@ -18,3 +18,11 @@ document.observe("dom:loaded", function() {
     }
   });
 });
+
+function clear_filter(){
+  document.getElementById('filter').value = '';
+
+  $$('div.book').each(function(v,i){
+    v.show();
+  });
+}

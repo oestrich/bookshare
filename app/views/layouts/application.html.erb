@@ -14,7 +14,10 @@
 
     <div id="header">
       <%= link_to "Bookshare.me", "/" %>
-      <div class="filter"><input type="text" id="filter"></div>
+      <div class="filter">
+        <input type="text" id="filter" />
+        <input type='button' id='clear' value='Clear' onClick='clear_filter()' />
+      </div>
     </div>  
     <%= render :partial => "shared/header" %>
     <br />
