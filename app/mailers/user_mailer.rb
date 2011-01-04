@@ -9,4 +9,7 @@ class UserMailer < ActionMailer::Base
     mail(:to => book.user.email, :subject => "#{borrower.email} has returned #{book.title} to your bookshelf.", :from => "team@bookshare.me")
   end
 
+  def request_book_confirmation(book, borrower)
+    mail(:to => book.user.email, :subject => "#{borrower.email} is requesting #{book.title}", :from => "team@bookshare.me")
+  end
 end
