@@ -6,13 +6,13 @@ document.observe("dom:loaded", function() {
     if (ev.srcElement.value) {
       $$('p.title').each(function(v,i){
         if (new RegExp('.*'+ev.srcElement.value,'ig').test(v.innerHTML)){
-          v.up().show();
+          v.up().up().show();
         }else{
-          v.up().hide();
+          v.up().up().hide();
         }
       });
     }else{
-      $$('div.book').each(function(v,i){
+      $$('div.book_wrapper').each(function(v,i){
         v.show();
       });
     }
@@ -22,7 +22,7 @@ document.observe("dom:loaded", function() {
 function clear_filter(){
   document.getElementById('filter').value = '';
 
-  $$('div.book').each(function(v,i){
+  $$('div.book_wrapper').each(function(v,i){
     v.show();
   });
 }
