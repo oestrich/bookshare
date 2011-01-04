@@ -3,7 +3,7 @@
 <% @requests.each do |request| %>
   <div class='request'>
     <span class='title'><%= link_to request.book.title, request.book%></span> <br />
-    <span class='name'>from <%= request.user.name %></span>
+    <span class='name'>from <%= request.book.user.name %></span>
     <%= link_to 'Remove Request', request, :confirm => 'Are you sure?', :method => :delete %>
   </div>
 <% end %>
@@ -19,6 +19,7 @@
     <div class='message'>
       <%= request.message %>
     </div>
-    <%= link_to 'Approve Request', request_approve_path(request) %><br />
+    <%= link_to 'Approve Request', request_approve_path(request) %>
+    <%= link_to 'Remove Request', request, :confirm => 'Are you sure?', :method => :delete %>
   </div>
 <% end %>

@@ -30,6 +30,7 @@ class Ability
       can :manage, Location, :user_id => user.id
       can :manage, Request, :user_id => user.id
       can :approve, Request, :user_id => user.id
+      can :destroy, Request, :owner_id => user.id
 
       can :read, Location
       can :about, Book

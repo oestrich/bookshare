@@ -45,6 +45,7 @@ class RequestsController < ApplicationController
   # POST /requests.xml
   def create
     @request = Request.new(params[:request])
+    @request.owner_id = @request.book.user.id
 
     @borrower = current_user
     UserMailer.request_book_confirmation(@request.book, @borrower).deliver
