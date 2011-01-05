@@ -15,7 +15,7 @@
   <% if can? :borrow, Book %>
     <% if @book.borrower_user_id == nil %>
       <% if !@book.location.public %>
-        <% if @book.is_requested? %>
+        <% if @book.requested? %>
           Requested
         <% else %>
           <%= link_to 'Request this book', new_request_id_path(@book) %>
@@ -51,7 +51,7 @@
         <% buser = User.find(@book.borrower_user_id) %>
         <div class='book borrowed details'>
           <%=  image_tag @book.image_url, :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
-      <% elsif @book.is_requested? %>
+      <% elsif @book.requested? %>
         <div class='book requested details'>
           <%= image_tag @book.image_url %>
       <% else %>
@@ -74,7 +74,7 @@
   <% if @book.borrower_user_id == current_user.id %>
     <%= link_to 'Return', return_book_path(@book) %> |
   <% elsif !@book.location.public %>
-    <% if !@book.is_requested? %>
+    <% if !@book.requested? %>
       <%= link_to 'Request this book', new_request_id_path(@book) %> |
     <% end %>
   <% elsif @book.borrower_user_id == nil %>

@@ -9,7 +9,8 @@ class Book < ActiveRecord::Base
     Book.new(LookupService.find_attributes_by_isbn_or_upc(input))
   end
 
-  def is_requested?()
-    !Request.where(:book_id => id).empty?
+  def request(status)
+    self.requested = status
+    save
   end
 end
