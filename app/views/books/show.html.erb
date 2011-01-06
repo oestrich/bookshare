@@ -58,10 +58,8 @@
 <% if can? :return, Book  %>
   <% if @book.borrower_user_id == current_user.id %>
     <%= link_to 'Return', return_book_path(@book) %> |
-  <% elsif !@book.location.public %>
-    <% if !@book.requested? %>
-      <%= link_to 'Request this book', new_request_id_path(@book) %> |
-    <% end %>
+  <% elsif !@book.location.public && !@book.requested?  %>
+    <%= link_to 'Request this book', new_request_id_path(@book) %> |
   <% elsif @book.borrower_user_id == nil %>
     <%= link_to 'Borrow', borrow_book_path(@book) %> |
   <% end %>

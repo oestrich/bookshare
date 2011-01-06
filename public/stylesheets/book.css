@@ -5,7 +5,7 @@ div.filter{
 .book_wrapper {
   float: left;
   width: 200px;
-  height: 200px;
+  height: 210px;
 }
 
 .book {
@@ -103,4 +103,19 @@ body {
 
 .message {
   margin: 10px;
+}
+
+/**
+ * Returns
+ */
+.return_link {
+  text-align: center;
+}
+
+.return_link a:link {
+  color: #6F0000;
+}
+
+.return_link a:visited {
+  color: #6F0000;
 }
