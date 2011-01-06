@@ -27,7 +27,7 @@
       <%= User.find(@book.borrower_user_id).email %>
     <% end %>
   <% else %>
-    <%= link_to 'Signup', new_user_registration_path() %> to borrow!
+    <%= link_to 'Signup', new_user_registration_path() %> or <%= link_to 'Sign in', new_user_session_path %> to borrow!
   <% end %>
 </p>
 
