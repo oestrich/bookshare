@@ -13,18 +13,14 @@
 <p class='details'>
   <b>Borrower:</b>
   <% if can? :borrow, Book %>
-    <% if @book.borrower_user_id == nil %>
-      <% if !@book.location.public %>
-        <% if @book.requested? %>
-          Requested
-        <% else %>
-          <%= link_to 'Request this book', new_request_id_path(@book) %>
-        <% end %>
-      <% else %>
-        <%= link_to 'Borrow', borrow_book_path(@book) %> 
-      <% end %>
-    <% else %>
+    <% if @book.borrowed? %>
       <%= User.find(@book.borrower_user_id).email %>
+    <% elsif !@book.in_public_location? && @book.requested? %>
+      <%= "Requested" %>
+    <% elsif !@book.in_public_location? %>
+      <%= link_to 'Request this book', new_request_id_path(@book) %>
+    <% else %>
+      <%= link_to 'Borrow', borrow_book_path(@book) %> 
     <% end %>
   <% else %>
     <%= link_to 'Signup', new_user_registration_path() %> or <%= link_to 'Sign in', new_user_session_path %> to borrow!
@@ -47,19 +43,8 @@
 </p>
 
 <p class='details'>
-      <% if @book.borrower_user_id != nil %>
-        <% buser = User.find(@book.borrower_user_id) %>
-        <div class='book borrowed details'>
-          <%=  image_tag @book.image_url, :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
-      <% elsif @book.requested? %>
-        <div class='book requested details'>
-          <%= image_tag @book.image_url %>
-      <% else %>
-        <div class='book details'>
-          <%= image_tag @book.image_url %> 
-      <% end %>
-      </div>
-      <div style='clear: both;' />
+  <%= render @book %>
+  <div style='clear: both;' />
 </p>
 
 <p class='details'>

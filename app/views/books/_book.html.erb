@@ -1,16 +1,7 @@
+
 <div class='book_wrapper'>
-  <% if book.borrower_user_id != nil %>
-    <% buser = User.find(book.borrower_user_id) %>
-    <div class='book borrowed'>
-      <%= link_to image_tag(book.image_url), book, 
-            :title => "#{buser.first_name} #{buser.last_name} is borrowing this book." %> 
-  <% elsif book.requested? %>
-    <div class='book requested'>
-      <%= link_to image_tag(book.image_url), book, :title => "Requested" %>
-  <% else %>
-    <div class='book'>
-      <%= link_to image_tag(book.image_url), book %>
-  <% end %>
+    <div class='book <%= book.book_status_css %>'>
+      <%= link_to image_tag(book.image_url, :title => book.borrow_status), book %> 
     <p class='title'><%= book.title %></p>
   </div>
 </div>

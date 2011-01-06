@@ -13,4 +13,27 @@ class Book < ActiveRecord::Base
     self.requested = status
     save
   end
+
+  def borrowed?
+    !self.borrower_user_id.nil?
+  end
+
+  def borrow_status
+    if borrowed?
+      b_user = User.find(self.borrower_user_id)
+      "#{b_user.first_name} #{b_user.last_name} is borrowing this book." 
+    end
+  end
+
+  def book_status_css
+    if !self.borrower_user_id.nil?
+      return "borrowed"
+    elsif self.requested?
+      return "requested"
+    end
+  end
+
+  def in_public_location?
+    self.location.public?
+  end
 end
