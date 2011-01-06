@@ -36,4 +36,8 @@ class Book < ActiveRecord::Base
   def in_public_location?
     self.location.public?
   end
+
+  def borrower_email
+    User.find(self.borrower_user_id).email
+  end
 end
