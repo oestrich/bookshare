@@ -10,24 +10,24 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110105200937) do
+ActiveRecord::Schema.define(:version => 20110106144702) do
 
   create_table "books", :force => true do |t|
-    t.string    "title"
-    t.integer   "user_id"
-    t.string    "location"
-    t.text      "description"
-    t.string    "isbn"
-    t.timestamp "created_at"
-    t.timestamp "updated_at"
-    t.string    "asin"
-    t.string    "author"
-    t.integer   "location_id"
-    t.string    "details_url"
-    t.string    "image_url"
-    t.integer   "borrower_user_id"
-    t.string    "lowest_used_price"
-    t.boolean   "requested",         :default => false
+    t.string   "title"
+    t.integer  "user_id"
+    t.string   "location"
+    t.text     "description"
+    t.string   "isbn"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.string   "asin"
+    t.string   "author"
+    t.integer  "location_id"
+    t.string   "details_url"
+    t.string   "image_url"
+    t.integer  "borrower_user_id"
+    t.string   "lowest_used_price"
+    t.boolean  "requested",         :default => false
   end
 
   create_table "locations", :force => true do |t|
