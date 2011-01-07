@@ -1,0 +1,55 @@
+/*
+ * New Requests
+ */
+/* line 4, ../../app/stylesheets/request.sass */
+.request_new #title {
+  font-size: 2em;
+}
+
+/* line 7, ../../app/stylesheets/request.sass */
+.request_new #name {
+  font-size: 2em;
+}
+
+/* line 10, ../../app/stylesheets/request.sass */
+.request_new #message {
+  font-size: 1.2em;
+  padding: 10px;
+  padding-left: 15px;
+}
+
+/*
+ * Requests
+ */
+/* line 18, ../../app/stylesheets/request.sass */
+.request {
+  margin: 10px;
+}
+
+/* line 21, ../../app/stylesheets/request.sass */
+.title {
+  font-size: 1.5em;
+}
+
+/* line 24, ../../app/stylesheets/request.sass */
+.name {
+  padding-left: 10px;
+}
+
+/* line 27, ../../app/stylesheets/request.sass */
+.message {
+  margin: 10px;
+}
+
+/* line 30, ../../app/stylesheets/request.sass */
+.return_link {
+  text-align: center;
+}
+/* line 32, ../../app/stylesheets/request.sass */
+.return_link a:link {
+  color: #6f0000;
+}
+/* line 34, ../../app/stylesheets/request.sass */
+.return_link a:visited {
+  color: #6f0000;
+}
