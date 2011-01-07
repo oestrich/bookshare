@@ -45,6 +45,7 @@ GEM
       rpx_now (>= 0.6.23)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    haml (3.0.25)
     hashie (0.4.0)
     httpclient (2.1.5.2)
     i18n (0.4.2)
@@ -94,6 +95,7 @@ DEPENDENCIES
   cancan
   devise
   devise_rpx_connectable
+  haml
   mail
   nifty-generators
   rails (= 3.0.3)

@@ -13,8 +13,7 @@ gem 'devise_rpx_connectable'
 gem 'cancan'
 gem 'mail'
 #gem 'compass'
-#gem 'compass-960-plugin'
-#gem 'haml'
+gem 'haml'
 #gem 'hassle'
 
 # Use unicorn as the web server
