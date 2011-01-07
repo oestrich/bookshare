@@ -1,0 +1,22 @@
+%h1 You are asking to borrow:
+- @requests.each do |request|
+  .request
+    %span.title= link_to request.book.title, request.book
+    %br/
+    %span.name
+      from #{request.book.user.name}
+    = link_to 'Remove Request', request, :confirm => 'Are you sure?', :method => :delete
+%br/
+%h1 Books that others want to borrow:
+- current_user.my_requested.each do |request|
+  .request
+    = request.user.name
+    wants to borrow
+    %br/
+    %span.title= link_to request.book.title, request.book
+    %br/
+    %h3 Message:
+    .message
+      = request.message
+    = link_to 'Approve Request', request_approve_path(request)
+    = link_to 'Remove Request', request, :confirm => 'Are you sure?', :method => :delete

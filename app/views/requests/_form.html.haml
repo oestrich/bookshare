@@ -1,0 +1,21 @@
+= form_for(@request) do |f|
+  - if @request.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@request.errors.count, "error")
+        prohibited this request from being saved:
+      %ul
+        - @request.errors.full_messages.each do |msg|
+          %li= msg
+  .field
+    = render @book
+    = f.hidden_field :book_id, :value => @book.id
+  #message.field
+    = f.label :message
+    %br/
+    = f.text_area :message, :rows => 10
+  .field
+    = f.hidden_field :user_id, :value => current_user.id
+  .actions
+    = f.submit
+  %div{:style => "clear: both"}/

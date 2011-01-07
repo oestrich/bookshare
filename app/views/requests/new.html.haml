@@ -1,0 +1,11 @@
+.request_new
+  %div
+    You are requesting:
+  #title
+    = @book.title
+    %br/
+  #name
+    from #{@book.user.name}
+  %br/
+  = render 'form'
+  = link_to 'Back', requests_path
