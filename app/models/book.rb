@@ -37,7 +37,11 @@ class Book < ActiveRecord::Base
     self.location.public?
   end
 
+  def borrower
+    User.find(self.borrower_user_id)
+  end
+
   def borrower_email
-    User.find(self.borrower_user_id).email
+    borrower.email
   end
 end
