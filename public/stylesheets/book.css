@@ -13,9 +13,8 @@ div.filter{
   background-color: #94B894;
   display: inline;
   margin: 5px;
-  padding: 10px;
-  padding-left: 5px;
-  padding-right: 5px;
+  padding: 10px 5px;
+  float: left;
 }
 
 .book .title {
