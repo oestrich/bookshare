@@ -95,48 +95,6 @@ a img {
   background-color: #ff8844;
 }
 
-/* line 26, ../../app/stylesheets/book.sass */
-.notice {
-  color: green;
-  font-size: 200%;
-  padding-bottom: 10px;
-}
-
-/* line 31, ../../app/stylesheets/book.sass */
-.alert {
-  color: red;
-  font-size: 200%;
-  padding-bottom: 10px;
-}
-
-/* line 36, ../../app/stylesheets/book.sass */
-#header {
-  font-size: 60px;
-}
-
-/* line 39, ../../app/stylesheets/book.sass */
-#header a {
-  text-decoration: none;
-  color: #444444;
-}
-
-/* line 43, ../../app/stylesheets/book.sass */
-body {
-  background-color: #e0e0d1;
-}
-
-/* line 46, ../../app/stylesheets/book.sass */
-.details {
-  margin-bottom: 10px;
-}
-
-/* line 49, ../../app/stylesheets/book.sass */
-.footer {
-  clear: both;
-  padding-top: 20px;
-  text-align: center;
-}
-
 /*
  * New Requests
  */
@@ -516,4 +474,46 @@ body {
 .new {
   clear: both;
   padding-bottom: 15px;
+}
+
+/* line 50, ../../app/stylesheets/screen.sass */
+.notice {
+  color: green;
+  font-size: 200%;
+  padding-bottom: 10px;
+}
+
+/* line 55, ../../app/stylesheets/screen.sass */
+.alert {
+  color: red;
+  font-size: 200%;
+  padding-bottom: 10px;
+}
+
+/* line 60, ../../app/stylesheets/screen.sass */
+#header {
+  font-size: 60px;
+}
+
+/* line 63, ../../app/stylesheets/screen.sass */
+#header a {
+  text-decoration: none;
+  color: #444444;
+}
+
+/* line 67, ../../app/stylesheets/screen.sass */
+body {
+  background-color: #e0e0d1;
+}
+
+/* line 70, ../../app/stylesheets/screen.sass */
+.details {
+  margin-bottom: 10px;
+}
+
+/* line 73, ../../app/stylesheets/screen.sass */
+.footer {
+  clear: both;
+  padding-top: 20px;
+  text-align: center;
 }
