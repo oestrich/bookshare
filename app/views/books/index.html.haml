@@ -1,0 +1,10 @@
+.new
+  - if can? :create, Book
+    = link_to 'New Book', new_book_path
+  - if can? :create, Location
+    = link_to "New Location", new_location_path 
+
+= render 'index'
+
+%br
+

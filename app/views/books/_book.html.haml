@@ -1,5 +1,5 @@
 .book_wrapper
-  .book{ :class => "#{book.book_status_css}" }
+  .book{ :class => book.book_status_css }
     = link_to image_tag(book.image_url, :title => book.borrow_status), book
 
     %p.title

@@ -1,0 +1,11 @@
+
+- @locations.each do |location| 
+  .location
+    %br
+    %h1
+      %b
+        = link_to location.name, "/locations/#{location.id}"
+
+    %br
+    = render location.books 
+
