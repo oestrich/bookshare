@@ -62,19 +62,19 @@ a img {
 #wrapper_one {
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
+  width: 960px;
 }
 
 /* line 11, ../../app/stylesheets/screen.sass */
 #wrapper_two {
   margin-left: auto;
   margin-right: auto;
-  width: 1000px;
+  width: 960px;
   display: inline;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-  width: 1000px;
+  width: 960px;
 }
 /* line 33, ../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.10.0/stylesheets/960/_grid.sass */
 #wrapper_two .grid_1, #wrapper_two .grid_2, #wrapper_two .grid_3, #wrapper_two .grid_4, #wrapper_two .grid_5, #wrapper_two .grid_6, #wrapper_two .grid_7, #wrapper_two .grid_8, #wrapper_two .grid_9, #wrapper_two .grid_10, #wrapper_two .grid_11, #wrapper_two .grid_12 {
@@ -367,7 +367,7 @@ a img {
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-  width: 1000px;
+  width: 960px;
   margin-left: 0;
   margin-right: 0;
 }
