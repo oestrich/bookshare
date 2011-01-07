@@ -1,0 +1,9 @@
+%p#notice= notice
+%p
+  %b= @location.name
+  - if can? :manage, Location
+    = link_to 'Edit', edit_location_path(@location)
+- @location.books.each do |book|
+  = render book
+%div{:style => "clear: both;"}
+  = link_to 'Back', locations_path

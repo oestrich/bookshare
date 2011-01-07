@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+%html
+  %head
+    %title Bookshare
+    = stylesheet_link_tag 'screen'
+    = stylesheet_link_tag 'book'
+    = javascript_include_tag :defaults
+    = csrf_meta_tag
+  %body
+    #wrapper_one
+      #wrapper_two
+        #header
+          = link_to "Bookshare.me", "/"
+          .filter
+            %input#filter{:type => "text"}/
+            %input#clear{:onClick => "clear_filter()", :type => "button", :value => "Clear"}/
+        = render :partial => "shared/header"
+        %br/
+        #column_1
+        #column_2
+        #main
+          %p.notice= notice
+          %p.alert= alert
+          = yield
+      = render :partial => "shared/footer"
