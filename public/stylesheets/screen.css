@@ -58,14 +58,14 @@ a img {
   border: none;
 }
 
-/* line 5, ../../app/stylesheets/screen.sass */
+/* line 5, ./app/stylesheets/screen.sass */
 #wrapper_one {
   margin-left: auto;
   margin-right: auto;
   width: 960px;
 }
 
-/* line 11, ../../app/stylesheets/screen.sass */
+/* line 11, ./app/stylesheets/screen.sass */
 #wrapper_two {
   margin-left: auto;
   margin-right: auto;
@@ -74,7 +74,7 @@ a img {
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-  width: 960px;
+  width: 940px;
 }
 /* line 33, ../../../../../../var/lib/gems/1.8/gems/compass-960-plugin-0.10.0/stylesheets/960/_grid.sass */
 #wrapper_two .grid_1, #wrapper_two .grid_2, #wrapper_two .grid_3, #wrapper_two .grid_4, #wrapper_two .grid_5, #wrapper_two .grid_6, #wrapper_two .grid_7, #wrapper_two .grid_8, #wrapper_two .grid_9, #wrapper_two .grid_10, #wrapper_two .grid_11, #wrapper_two .grid_12 {
@@ -329,19 +329,19 @@ a img {
   left: -960px;
 }
 
-/* line 15, ../../app/stylesheets/screen.sass */
+/* line 15, ./app/stylesheets/screen.sass */
 #header {
   padding-top: 30px;
   padding-bottom: 30px;
   padding-left: 10px;
   padding-right: 20px;
 }
-/* line 21, ../../app/stylesheets/screen.sass */
+/* line 21, ./app/stylesheets/screen.sass */
 #header h1 {
   font-size: 60px;
 }
 
-/* line 24, ../../app/stylesheets/screen.sass */
+/* line 24, ./app/stylesheets/screen.sass */
 #column_1 {
   display: inline;
   float: left;
@@ -351,7 +351,7 @@ a img {
   margin-left: 0;
 }
 
-/* line 30, ../../app/stylesheets/screen.sass */
+/* line 30, ./app/stylesheets/screen.sass */
 #column_2 {
   display: inline;
   float: left;
@@ -361,37 +361,31 @@ a img {
   margin-right: 0;
 }
 
-/* line 35, ../../app/stylesheets/screen.sass */
+/* line 35, ./app/stylesheets/screen.sass */
 #main {
   display: inline;
   float: left;
   margin-left: 10px;
   margin-right: 10px;
-  width: 960px;
+  width: 940px;
   margin-left: 0;
   margin-right: 0;
 }
 
-/* line 41, ../../app/stylesheets/screen.sass */
+/* line 41, ./app/stylesheets/screen.sass */
 .book {
   display: inline;
-  padding: 5px;
+  padding: 10px;
   float: left;
 }
 
-/* line 46, ../../app/stylesheets/screen.sass */
+/* line 46, ./app/stylesheets/screen.sass */
 .location {
   clear: both;
 }
 
-/* line 49, ../../app/stylesheets/screen.sass */
+/* line 49, ./app/stylesheets/screen.sass */
 .new {
   clear: both;
   padding-bottom: 15px;
-}
-
-
-.user_nav{
-  clear: both;
-  float: left;
 }
