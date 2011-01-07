@@ -1,0 +1,27 @@
+= form_for(@book) do |f|
+  - if @book.errors.any?
+    #error_explanation
+      %h2
+        = pluralize(@book.errors.count, "error")
+        prohibited this book from being saved:
+      %ul
+        - @book.errors.full_messages.each do |msg|
+          %li= msg
+  %br/
+  .field
+    = f.label "ISBN or UPC"
+    %br/
+    = f.text_field :isbn
+  %br/
+  .field
+    = f.label :location
+    %br/
+    = f.collection_select :location_id, current_user.locations.all, :id, :name
+  .field
+    - if user_signed_in?
+      = f.hidden_field :user_id, :value => current_user.id
+  %br/
+  .actions
+    = f.submit
+%script{:language => "javascript", :type => "text/javascript"}
+  document.getElementById('book_isbn').focus()

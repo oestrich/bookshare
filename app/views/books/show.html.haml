@@ -1,0 +1,55 @@
+/ <p id="notice"><haml:loud> notice </haml:loud></p>
+%p.details
+  %b= @book.title
+  by
+  \#{@book.author}
+%p.details
+  %b Owner:
+  = @book.user.email
+%p.details
+  %b Borrower:
+  - if can? :borrow, Book
+    - if @book.borrowed?
+      = @book.borrower_email
+    - elsif !@book.in_public_location? && @book.requested?
+      = "Requested"
+    - elsif !@book.in_public_location?
+      = link_to 'Request this book', new_request_id_path(@book)
+    - else
+      = link_to 'Borrow', borrow_book_path(@book)
+  - else
+    = link_to 'Signup', new_user_registration_path()
+    or #{link_to 'Sign in', new_user_session_path} to borrow!
+%p.details
+  %b Location:
+  = @book.location.name
+%p.details
+  %b Isbn:
+  = @book.isbn
+%p.details
+  %b Lowest Used Price:
+  = @book.lowest_used_price
+%p.details
+  = render @book
+  %div{:style => "clear: both;"}/
+%p.details
+  = link_to "View details & related books on Amazon", @book.details_url, :target => "_blank"
+%br/
+- if can? :edit, Book
+  = link_to 'Edit', edit_book_path(@book)
+  |
+- if can? :return, Book
+  - if @book.borrower_user_id == current_user.id
+    = link_to 'Return', return_book_path(@book)
+    |
+  - elsif !@book.location.public && !@book.requested?
+    = link_to 'Request this book', new_request_id_path(@book)
+    |
+  - elsif @book.borrower_user_id == nil
+    = link_to 'Borrow', borrow_book_path(@book)
+    |
+- if can? :destroy, Book
+  - if @book.user_id == current_user.id
+    = link_to 'Destroy', @book, :confirm => 'Are you sure?', :method => :delete
+    |
+= link_to 'Back', books_path
