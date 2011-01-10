@@ -6,12 +6,17 @@ gem 'rails', '3.0.3'
 # gem 'rails', :git => 'git://github.com/rails/rails.git'
 
 gem 'sqlite3-ruby', :require => 'sqlite3'
+
 gem 'devise'
-gem 'asin'
-gem 'nifty-generators'
-gem 'devise_rpx_connectable'
 gem 'cancan'
+
+gem 'asin'
+
+#gem 'nifty-generators'
+#gem 'devise_rpx_connectable'
+
 gem 'mail'
+
 gem 'compass', ">= 0.10.6"
 gem 'compass-960-plugin'
 gem 'haml'
