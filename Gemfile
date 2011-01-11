@@ -20,11 +20,14 @@ gem 'mail'
 gem 'compass', ">= 0.10.6"
 gem 'compass-960-plugin'
 gem 'haml'
+gem 'haml-rails'
 
-gem 'factory_girl_rails'
-gem 'shoulda'
+group :test do
+  gem 'shoulda'
+end
 
 group :test, :development do
+  gem 'factory_girl_rails'
   gem "rspec-rails", "~> 2.4"
 end
 
