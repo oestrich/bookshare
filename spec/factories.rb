@@ -18,3 +18,6 @@ Factory.define :location do |f|
   f.name "Location"
   #f.user Factory(:user)
 end
+
+Factory.define :request do |f|
+end
