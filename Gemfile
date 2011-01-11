@@ -22,6 +22,11 @@ gem 'compass-960-plugin'
 gem 'haml'
 
 gem 'factory_girl_rails'
+gem 'shoulda'
+
+group :test, :development do
+  gem "rspec-rails", "~> 2.4"
+end
 
 # Use unicorn as the web server
 # gem 'unicorn'
