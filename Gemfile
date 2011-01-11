@@ -29,6 +29,8 @@ end
 group :test, :development do
   gem 'factory_girl_rails'
   gem "rspec-rails", "~> 2.4"
+  gem "cucumber-rails"
+  gem "capybara"
 end
 
 # Use unicorn as the web server
