@@ -21,8 +21,9 @@ class Book < ActiveRecord::Base
   def borrow_status
     if borrowed?
       b_user = User.find(self.borrower_user_id)
-      "#{b_user.first_name} #{b_user.last_name} is borrowing this book." 
+      return "#{b_user.first_name} #{b_user.last_name} is borrowing this book." 
     end
+    ""
   end
 
   def book_status_css
@@ -31,6 +32,7 @@ class Book < ActiveRecord::Base
     elsif self.requested?
       return "requested"
     end
+    ""
   end
 
   def in_public_location?
@@ -38,9 +40,10 @@ class Book < ActiveRecord::Base
   end
 
   def borrower
-    User.find(self.borrower_user_id)
+    User.find(self.borrower_user_id) if self.borrower_user_id
   end
 
+  # TODO remove this
   def borrower_email
     borrower.email
   end
