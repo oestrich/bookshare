@@ -46,6 +46,10 @@ GEM
       warden (~> 0.10.7)
     erubis (2.6.6)
       abstract (>= 1.0.0)
+    factory_girl (1.3.2)
+    factory_girl_rails (1.0.1)
+      factory_girl (~> 1.3)
+      railties (>= 3.0.0)
     haml (3.0.25)
     hashie (0.4.0)
     httpclient (2.1.5.2)
@@ -93,6 +97,7 @@ DEPENDENCIES
   compass (>= 0.10.6)
   compass-960-plugin
   devise
+  factory_girl_rails
   haml
   mail
   rails (= 3.0.3)

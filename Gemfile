@@ -21,6 +21,8 @@ gem 'compass', ">= 0.10.6"
 gem 'compass-960-plugin'
 gem 'haml'
 
+gem 'factory_girl_rails'
+
 # Use unicorn as the web server
 # gem 'unicorn'
 
